@@ -1,6 +1,18 @@
 # 本リポジトリについて
 本リポジトリは、江崎貴裕著『指標・特徴量の設計から始める データ可視化学入門 データを洞察につなげる技術』（ソシム）のサンプルコードを公開するためのリポジトリです。
 
+- 動作確認は MATLAB R2023b で実施しています。
+- 各サンプルコードは markdown 版と MATLAB スクリプト版を用意しています。後者は MATLAB で実行できます。
+- MATLAB Online で開く場合は MathWorks アカウントでのログインが必要です。
+
+
+# ご利用に際して　
+
+- 各章の図版を作成するためのコードが各フォルダに入っています。各 MATLAB ファイルは独立して動くようになっているので、個別に取り出して実行できます。
+- 本書の中で用いられている図版と厳密に同じ図にはならないことに注意してください。
+
+# コード一覧
+
 以下のリンクをクリックすると MATLAB Online で開くことができます。
 [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization-)
 
