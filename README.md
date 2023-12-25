@@ -32,7 +32,7 @@
 | 4.1 三つ以上の変数の可視化　|  |
 | 4.2 ネットワークをとらえる　|  |
 | 4.3 「まとめる」可視化　|  |
-| 5.1 分布と統計量　|  |
+| 5.1 [分布と統計量](chapter5/chapter5_1.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter5/chapter5_1.mlx) |
 | 5.2 ばらつきをとらえる　|  |
 | 5.3 分布の形をとらえる　|  |
 | 6.1 「近いか遠いか」をとらえる　|  |
