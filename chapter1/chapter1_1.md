@@ -1,5 +1,5 @@
 
-# 1.1 データを可視化するということ
+# <span style="color:rgb(213,80,0)">1.1 データを可視化するということ</span>
 ## 図1.1.3 日本の総人口の推移
 ```matlab
 % データを配列で提供
@@ -10,7 +10,7 @@ population = [1.23611, 1.24101, 1.24567, 1.24938, 1.25265, 1.2557, 1.25859, 1.26
 3. 26146, 1.25502, 1.24947]; % 人口（億人単位）
 
 % グラフの描画
-figure('Units', 'inches', 'Position', [0 0 5 3]); % グラフのサイズ指定
+figure(Units='inches', Position=[0 0 5 3]); % グラフのサイズ指定
 plot(years, population, '-o'); % 折れ線グラフの描画
 
 % 軸ラベルの設定
@@ -24,7 +24,8 @@ grid on; % グリッドを表示
 print('../figures/1_1_3_population_line_plot','-dpng','-r300'); % dpiを指定して保存
 ```
 
-![figure_0.png](chapter1_1_media/figure_0.png)
+<center><img src="chapter1_1_media/figure_0.png" width="562" alt="figure_0.png"></center>
+
 ## 図1.1.4 散布図でみる総人口
 ```matlab
 % データを配列で提供
@@ -39,7 +40,7 @@ population = [1.23611, 1.24101, 1.24567, 1.24938, 1.25265, 1.2557, 1.25859, 1.26
 next_year_population = population(2:end); % 次の年の人口列を作成
 
 % グラフの描画
-figure('Units', 'inches', 'Position', [0 0 5 5]); % グラフのサイズを指定する場合
+figure(Units='inches', Position=[0 0 5 5]); % グラフのサイズを指定する場合
 scatter(population(1:end-1), next_year_population,'filled'); % 散布図の描画
 
 % 軸の範囲設定
@@ -56,7 +57,8 @@ grid on; % グリッドを表示
 print('../figures/1_1_4_population_scatter_plot','-dpng','-r300'); % dpiを指定して保存
 ```
 
-![figure_1.png](chapter1_1_media/figure_1.png)
+<center><img src="chapter1_1_media/figure_1.png" width="482" alt="figure_1.png"></center>
+
 ## 図 1.1.5 折れ線グラフと散布図による可視化例その 2
 ```matlab
 % データの定義
@@ -74,27 +76,28 @@ x_t = [
     0.869680775, 0.4533445, 0.991293057, 0.034524528, 0.13333034, 0.462213442, 0.994288704, 0.022714708, 0.088795, 0.323641792, 0.87559113];
 
 % サブプロットを含むグラフの作成
-figure('Units', 'inches', 'Position', [0 0 10 4]); % レイアウト設定
+figure(Units='inches', Position=[0 0 10 4]); % レイアウト設定
 
 % 時系列プロットの作成
 tiledlayout(1,2) % 1x2 の tile 準備
 nexttile
-plot(t, x_t, 'o-', 'Color', 'green'); % 時系列グラフの描画
-xlabel('Time [ $t$ ]', 'Interpreter', 'latex'); % x軸のラベル
-ylabel(' $x(t)$ ', 'Interpreter', 'latex'); % y軸のラベル
+plot(t, x_t, 'o-', Color='green'); % 時系列グラフの描画
+xlabel('Time [ $t$ ]', Interpreter='latex'); % x軸のラベル
+ylabel(' $x(t)$ ', Interpreter='latex'); % y軸のラベル
 grid on; % グリッドを表示
 
 % ラグプロット（1ステップタイムラグの散布図）の作成
 nexttile
-scatter(x_t(1:end-1), x_t(2:end), 'filled', 'MarkerFaceColor', 'g'); % ラグプロットの描画
-xlabel(' $x(t)$ ', 'Interpreter', 'latex'); % x軸のラベル
-ylabel(' $x(t+1)$ ', 'Interpreter', 'latex'); % y軸のラベル
+scatter(x_t(1:end-1), x_t(2:end), 'filled', MarkerFaceColor='green'); % ラグプロットの描画
+xlabel(' $x(t)$ ', Interpreter='latex'); % x軸のラベル
+ylabel(' $x(t+1)$ ', Interpreter='latex'); % y軸のラベル
 grid on; % グリッドを表示
 % グラフをファイルに保存
 print('../figures/1_1_5_logistic_map','-dpng','-r300'); % dpiを指定して保存
 ```
 
-![figure_2.png](chapter1_1_media/figure_2.png)
+<center><img src="chapter1_1_media/figure_2.png" width="934" alt="figure_2.png"></center>
+
 ## 図 1.1.6 2 個体間の類似度のスコア化の仮想的な例
 ```matlab
 % ヒートマップを生成
@@ -126,20 +129,20 @@ intercept = b(1);
 figure;
 tiledlayout(1,2)
 nexttile
-imshow(heatmap1, 'Colormap', gray, 'InitialMagnification', 'fit');
+imshow(heatmap1, Colormap=gray, InitialMagnification='fit');
 
 nexttile
-imshow(heatmap2, 'Colormap', gray, 'InitialMagnification', 'fit');
+imshow(heatmap2, Colormap=gray, InitialMagnification='fit');
 print('../figures/1_1_6_visual_data','-dpng');
 ```
 
-![figure_3.png](chapter1_1_media/figure_3.png)
+<center><img src="chapter1_1_media/figure_3.png" width="562" alt="figure_3.png"></center>
+
 
 ```matlab
-
 % 散布図と回帰直線の描画
 figure;
-scatter(x, y, 'filled', 'MarkerFaceAlpha', 0.5);
+scatter(x, y, 'filled', MarkerFaceAlpha=0.5);
 hold on;
 plot(x, intercept + slope * x, 'b');
 axis equal;
@@ -148,7 +151,8 @@ ylim([0, 1]);
 print('../figures/1_1_6_scatter','-dpng','-r300');
 ```
 
-![figure_4.png](chapter1_1_media/figure_4.png)
+<center><img src="chapter1_1_media/figure_4.png" width="562" alt="figure_4.png"></center>
+
 
 ```matlab
 
@@ -158,7 +162,7 @@ fprintf('Correlation coefficient: %f, p-value: %f\n', r(1,2), p(1,2));
 ```
 
 ```TextOutput
-Correlation coefficient: 0.853839, p-value: 0.000000
+Correlation coefficient: 0.720160, p-value: 0.000000
 ```
 
 ```matlab
@@ -184,31 +188,33 @@ figure;
 barWidth = 1;
 r1 = 1:length(individual1);
 r2 = r1 + barWidth;
-bar(r1, individual1, 'b', 'BarWidth', barWidth);
+bar(r1, individual1, 'blue', BarWidth=barWidth);
 hold on;
-bar(r2, individual2, 'r', 'BarWidth', barWidth);
+bar(r2, individual2, 'red', BarWidth=barWidth);
 xlim([0, 100]);
-set(gca, 'FontSize', 18);
+set(gca, FontSize=18);
 print('../figures/1_1_6_location_index','-dpng','-r300');
 ```
 
-![figure_5.png](chapter1_1_media/figure_5.png)
+<center><img src="chapter1_1_media/figure_5.png" width="562" alt="figure_5.png"></center>
+
 
 ```matlab
 
 % 散布図と回帰直線の描画
 figure;
-scatter(individual1, individual2, 'filled', 'MarkerFaceColor', 'g', 'MarkerFaceAlpha', 0.5);
+scatter(individual1, individual2, 'filled', MarkerFaceColor='green', MarkerFaceAlpha=0.5);
 hold on;
-plot(individual1, intercept + slope * individual1, 'g');
+plot(individual1, intercept + slope * individual1, 'green');
 axis equal;
 xlim([0, 0.03]);
 ylim([0, 0.03]);
-set(gca, 'XTick', [0, 0.01, 0.02, 0.03], 'YTick', [0, 0.01, 0.02, 0.03], 'FontSize', 20);
+set(gca, XTick=[0, 0.01, 0.02, 0.03], YTick=[0, 0.01, 0.02, 0.03], FontSize=20);
 print('../figures/1_1_6_location_index_scatter','-dpng','-r300');
 ```
 
-![figure_6.png](chapter1_1_media/figure_6.png)
+<center><img src="chapter1_1_media/figure_6.png" width="562" alt="figure_6.png"></center>
+
 
 ```matlab
 
@@ -218,7 +224,7 @@ fprintf('Correlation coefficient: %f, p-value: %f\n', r(1,2), p(1,2));
 ```
 
 ```TextOutput
-Correlation coefficient: 0.811441, p-value: 0.000000
+Correlation coefficient: 0.856256, p-value: 0.000000
 ```
 ## 図 1.1.7 二つの類似度スコアの関係
 ```matlab
@@ -244,10 +250,10 @@ slope = b(2);
 intercept = b(1);
 
 % 散布図の描画
-scatter(x, y, 'MarkerEdgeColor', 'green', 'MarkerFaceAlpha', 0.5);
+scatter(x, y, MarkerEdgeColor='green', MarkerFaceAlpha=0.5);
 hold on; % 図の保持
-plot(x, intercept + slope * x, 'Color', 'green'); % 回帰直線の描画
-scatter(0.80, 0.72, 'MarkerEdgeColor', 'r'); % 特定の点を赤色で描画
+plot(x, intercept + slope * x, Color='green'); % 回帰直線の描画
+scatter(0.80, 0.72, MarkerFaceColor='red'); % 特定の点を赤色で描画
 
 axis equal; % アスペクト比を等しく設定
 xticks([-0.5, 0.0, 0.5, 1]); % X軸の目盛り
@@ -258,4 +264,5 @@ ylim([-0.5, 1.0]); % Y軸の表示範囲
 print('../figures/1_1_7_similarity_scatter', '-dpng', '-r300');
 ```
 
-![figure_7.png](chapter1_1_media/figure_7.png)
+<center><img src="chapter1_1_media/figure_7.png" width="562" alt="figure_7.png"></center>
+

@@ -1,204 +1,158 @@
 
-# 2.3 標本を視えるようにする
+# <span style="color:rgb(213,80,0)">2.3 標本を視えるようにする</span>
 ## 図 2.3.1 平均値の棒グラフの危険性
 ```matlab
-% Set font size
-set(0, 'DefaultAxesFontSize', 14);
+% データの生成
+rng('default');  % 乱数のシードを設定（再現性のため）
 
-% Data generation
-rng(0); % Set random seed for reproducibility
+% 商品1の日別販売数
+product1_small_var = normrnd(100, 5, [30,1]);  % 平均100、標準偏差5の正規分布に従う乱数を30個生成
+product1_small_var = product1_small_var - ...
+    mean(product1_small_var) + 100;  % 平均値を100に調整
 
-% Product 1 daily sales
-product1_small_var = normrnd(100, 5, [30, 1]); % Generate 30 normally distributed random numbers with mean 100 and std 5
-product1_small_var = product1_small_var - mean(product1_small_var) + 100; % Adjust mean to 100
+product1_large_var = normrnd(100, 20, [4,1]);  % 平均100、標準偏差20の正規分布に従う乱数を4個生成
+product1_large_var = product1_large_var - ...
+    mean(product1_large_var) + 100;  % 平均値を100に調整
 
-product1_large_var = normrnd(100, 20, [4, 1]); % Generate 4 normally distributed random numbers with mean 100 and std 20
-product1_large_var = product1_large_var - mean(product1_large_var) + 100; % Adjust mean to 100
+% 商品2の日別販売数
+product2_small_var = normrnd(80, 5, [30,1]);  % 平均80、標準偏差5の正規分布に従う乱数を30個生成
+product2_small_var = product2_small_var - ...
+    mean(product2_small_var) + 80;  % 平均値を80に調整
 
-rng(2); % Set random seed for reproducibility
-% Product 2 daily sales
-product2_small_var = normrnd(80, 5, [30, 1]); % Generate 30 normally distributed random numbers with mean 80 and std 5
-product2_small_var = product2_small_var - mean(product2_small_var) + 80; % Adjust mean to 80
+product2_large_var = normrnd(80, 20, [4,1]);  % 平均80、標準偏差20の正規分布に従う乱数を4個生成
+product2_large_var = product2_large_var - ...
+    mean(product2_large_var) + 80;  % 平均値を80に調整
 
-product2_large_var = normrnd(80, 20, [4, 1]); % Generate 4 normally distributed random numbers with mean 80 and std 20
-product2_large_var = product2_large_var - mean(product2_large_var) + 80; % Adjust mean to 80
+figure(Position=[100, 100, 1000, 500]);
+tiledlayout('horizontal')
 
-% Create data tables
-data_small_var_product1 = table(repmat({'商品1'}, 30, 1), product1_small_var, 'VariableNames', {'商品', '日別販売数'});
-data_small_var_product2 = table(repmat({'商品2'}, 30, 1), product2_small_var, 'VariableNames', {'商品', '日別販売数'});
-data_large_var_product1 = table(repmat({'商品1'}, 4, 1), product1_large_var, 'VariableNames', {'商品', '日別販売数'});
-data_large_var_product2 = table(repmat({'商品2'}, 4, 1), product2_large_var, 'VariableNames', {'商品', '日別販売数'});
-
-% Concatenate data tables
-data_small_var = [data_small_var_product1; data_small_var_product2];
-data_large_var = [data_large_var_product1; data_large_var_product2];
-
-% Create figure
-figure('Position', [100, 100, 1000, 500]);
-
-% Bar plot
-subplot(1, 3, 1);
-bar([1, 2], [100, 80], 0.5, 'FaceColor', 'flat', 'CData', [0 0 1; 1 0.5 0]);
+% 棒グラフ
+nexttile
+bar(categorical(["商品1", "商品2"]), [100,80], ...
+    FaceColor='flat', CData=[0 0 1; 1 0.5 0]);
 ylim([0, 130]);
 ylabel('日別販売数（平均）');
 
-% Strip plot (small variance)
-subplot(1, 3, 2);
-hold on;
-scatter(ones(size(product1_small_var)), product1_small_var, 'filled', 'MarkerFaceColor', 'blue');
-% scatter(2*ones(size(product2_small_var)), product2_small_var, 'filled', 'MarkerFaceColor', 'orange');
-scatter(2*ones(size(product2_small_var)), product2_small_var, 'filled', 'MarkerFaceColor', 'red');
+% ストリッププロット（分散小）
+nexttile
+x = categorical([repelem("商品1",30,1),repelem("商品2",30,1)]);
+y = [product1_small_var, product2_small_var];
+swarmchart(x,y,'filled',XJitter='rand',XJitterWidth=0.2);
 ylim([0, 130]);
-set(gca, 'xtick', [1, 2], 'xticklabel', {'商品1', '商品2'});
-hold off;
 
-% Strip plot (large variance)
-subplot(1, 3, 3);
-hold on;
-scatter(ones(size(product1_large_var)), product1_large_var, 'filled', 'MarkerFaceColor', 'blue');
-% scatter(2*ones(size(product2_large_var)), product2_large_var, 'filled', 'MarkerFaceColor', 'orange');
-scatter(2*ones(size(product2_large_var)), product2_large_var, 'filled', 'MarkerFaceColor', 'red');
+% ストリッププロット（分散大）
+nexttile
+x = categorical([repelem("商品1",4,1),repelem("商品2",4,1)]);
+y = [product1_large_var, product2_large_var];
+swarmchart(x,y,'filled',XJitter='rand',XJitterWidth=0.2);
 ylim([0, 130]);
-set(gca, 'xtick', [1, 2], 'xticklabel', {'商品1', '商品2'});
-hold off;
-
-% Save the figure as an image
-saveas(gcf, '2_3_1_group_comparison.png');
+print('../figures/2_3_1_group_comparison','-dpng', '-r300');
 ```
 
-![figure_0.png](chapter2_3_media/figure_0.png)
+<center><img src="chapter2_3_media/figure_0.png" width="798" alt="figure_0.png"></center>
+
 ## 図 2.3.2 様々な標本の可視化
 ```matlab
-% Set font size
-set(0, 'DefaultAxesFontSize', 15);
+% データ生成
+rng(0)  % 乱数のシードを設定（再現性のため）
 
-% Data generation
-rng(0); % Set random seed for reproducibility
-num_samples = 100; % Sample size
-% Generate num_samples random numbers from a normal distribution with mean 100 and std 10
-category1 = normrnd(100, 10, [num_samples, 1]);
-% Generate num_samples random numbers from a normal distribution with mean 80 and std 20
-category2 = normrnd(80, 20, [num_samples, 1]);
+num_samples = 100;  % サンプルサイズ
+% 平均100、標準偏差10の正規分布に従う乱数をnum_samples個生成
+category1 = 10.*randn(num_samples,1) + 100;
+% 平均80、標準偏差20の正規分布に従う乱数をnum_samples個生成
+category2 = 20.*randn(num_samples,1) + 80;
 
-% Create data table
-categories = [repmat({'商品3'}, num_samples, 1); repmat({'商品4'}, num_samples, 1)];
-values = [category1; category2];
-data = table(categories, values, 'VariableNames', {'Category', 'Value'});
+% サブプロットの作成
+figure('Position', [0 0 1000 1000]);
+tiledlayout(2,3)
 
-% Create subplots
-fig = figure('Position', [100, 100, 1000, 1000]);
+% ストリッププロット
+nexttile
+x = categorical([repelem("商品3",num_samples,1),repelem("商品4",num_samples,1)]);
+y = [category1, category2];
+s = swarmchart(x,y,XJitter='rand',XJitterWidth=0.2);
 
-% Strip plot (using scatter plot as MATLAB does not have a direct equivalent)
-subplot(2, 3, 1);
-hold on;
-scatter(ones(size(category1)), category1, 'filled', 'MarkerFaceColor', 'b');
-scatter(2*ones(size(category2)), category2, 'filled', 'MarkerFaceColor', 'r');
-hold off;
 title('ストリッププロット');
-ylim([0, 140]);
-set(gca, 'xtick', [1, 2], 'xticklabel', {'商品3', '商品4'});
+ylim([0 140]);
 
-% Swarm plot (using scatter plot with jittering as MATLAB does not have a direct equivalent)
-subplot(2, 3, 2);
-hold on;
-scatter(ones(size(category1)) + 0.1*(rand(size(category1))-0.5), category1, 'filled', 'MarkerFaceColor', 'b');
-scatter(2*ones(size(category2)) + 0.1*(rand(size(category2))-0.5), category2, 'filled', 'MarkerFaceColor', 'r');
-hold off;
+% スウォームプロット
+nexttile
+x = categorical([repelem("商品3",num_samples,1),repelem("商品4",num_samples,1)]);
+y = [category1, category2];
+swarmchart(x,y)
 title('スウォームプロット');
-ylim([0, 140]);
-set(gca, 'xtick', [1, 2], 'xticklabel', {'商品3', '商品4'});
+ylim([0 140]);
 
-% Histogram
-subplot(2, 3, 3);
-histogram(category1, 'BinEdges', 0:7:140, 'Orientation', 'horizontal', 'FaceColor', 'b', 'EdgeColor', 'b', 'FaceAlpha', 0.5);
-hold on;
-histogram(category2, 'BinEdges', 0:7:140, 'Orientation', 'horizontal', 'FaceColor', 'r', 'EdgeColor', 'r', 'FaceAlpha', 0.5);
-hold off;
+% ヒストグラム
+nexttile
+histogram(category1, Orientation='horizontal', BinWidth=7);
+hold on
+histogram(category2, Orientation='horizontal', BinWidth=7);
+legend('商品3','商品4');
 title('ヒストグラム');
-ylim([0, 140]);
-legend({'商品3', '商品4'});
+ylim([0 140]);
 
-% Violin plot (using distributionPlot function from File Exchange, if available)
-subplot(2, 3, 4);
-% distributionPlot({category1, category2}, 'color', {'b', 'r'}, 'showMM', 0);
-title('バイオリンプロット');
-ylim([0, 140]);
+% バイオリンプロット
+nexttile
+% "violinplot"の描画はMATLAB製品として関数がないため除外します
+% 以下の関数で実現可能
+% https://github.com/bastibe/Violinplot-Matlab
 
-% Bar plot with error bars
-subplot(2, 3, 5);
-% barwitherr([std(category1), std(category2)], [1, 2], [mean(category1), mean(category2)], 'FaceColor', 'flat', 'CData', [0 0 1; 1 0 0]);
-title('エラーバー付き棒グラフ');
-ylim([0, 140]);
-set(gca, 'xtick', [1, 2], 'xticklabel', {'商品3', '商品4'});
+% エラーバーフィット棒グラフ
+nexttile
+bar(categorical(["商品3", "商品4"]), [mean(category1), mean(category2)]);
+hold on;
+er = errorbar(categorical(["商品3", "商品4"]), ...
+    [mean(category1), mean(category2)], [std(category1), std(category2)]);
+er.Color = [0 0 0];                            
+er.LineStyle = 'none'; 
+hold off
+title('エラーバーフィット棒グラフ');
+ylim([0 140]);
 
-% Box plot
-subplot(2, 3, 6);
-boxplot(values, categories, 'Colors', ['b', 'r']);
-title('箱髭図');
-ylim([0, 140]);
-set(gca, 'xtick', [1, 2], 'xticklabel', {'商品3', '商品4'});
+% 箱ひげ図
+nexttile
+boxchart([category1, category2]);
+title('箱ひげ図');
+xticklabels(["商品3","商品4"])
+ylim([0 140]);
+print('../figures/2_3_2_dist_charts','-dpng', '-r300');
 ```
 
-![figure_1.png](chapter2_3_media/figure_1.png)
+<center><img src="chapter2_3_media/figure_1.png" width="798" alt="figure_1.png"></center>
 
-```matlab
-
-% Adjust layout
-% MATLAB automatically adjusts the layout, so there is no need for an equivalent to plt.tight_layout()
-
-% Save the figure as an image
-% saveas(fig, '2_3_2_dist_charts.png');
-```
 ## 図 2.3.3 箱ひげ図の構成要素
 ```matlab
-% Set font size
-set(0, 'DefaultAxesFontSize', 14);
+% データ生成
+rng(0)  % 乱数のシードを設定（再現性のため）
+num_samples = 100;  % サンプルサイズ
 
-% Data generation
-rng(0); % Set random seed for reproducibility
-num_samples = 100; % Sample size
-% Generate num_samples random numbers from a normal distribution with mean 100 and std 10
+% 平均100、標準偏差10の正規分布に従う乱数をnum_samples個生成
 category1 = normrnd(100, 10, [num_samples, 1]);
-% Generate num_samples random numbers from a normal distribution with mean 80 and std 20
+% 平均80、標準偏差20の正規分布に従う乱数をnum_samples個生成
 category2 = normrnd(80, 20, [num_samples, 1]);
 
-% Create data table
-categories = [repmat({'商品3'}, num_samples, 1); repmat({'商品4'}, num_samples, 1)];
-values = [category1; category2];
-data = table(categories, values, 'VariableNames', {'Category', 'Value'});
+% テーブルの生成
+type1 = repelem("商品3",num_samples,1);
+type2 = repelem("商品4",num_samples,1);
+data = table(categorical([type1; type2]), [category1;category2], VariableNames=["type","value"]);
+data4 = data(data.type=="商品4",:);  % 商品4だけを選択
 
-% Filter data for '商品4' category
-data = data(strcmp(data.Category, '商品4'), :);
+% 箱ひげ図
+figure('Position', [10, 10, 600, 600])  % サブプロットの作成
+boxchart(data4.type, data4.value)  % 箱ひげ図を描画
 
-% Create subplot
-fig = figure('Position', [100, 100, 600, 600]);
+hold on
+% スウォームプロット
+swarmchart(data4,'type','value','filled')
 
-% Box plot
-boxplot(data.Value, data.Category, 'Colors', 'b', 'Widths', 0.3);
-hold on;
-
-% Swarm plot (simulated using scatter plot with jittering)
-category_values = data.Value;
-category_indices = ones(size(category_values));
-jittering = 0.1 * (rand(size(category_indices)) - 0.5);
-scatter(category_indices + jittering, category_values, 'filled', ...
-    'MarkerEdgeColor', 'k', 'MarkerFaceColor', 'b', 'LineWidth', 1);
-
-% Adjust y-axis limits
-ylim([0, 140]);
-
-% Remove x and y labels
+ylim([0, 140])  % y軸の範囲を設定
+fontsize(14,'points')
 xlabel('');
 ylabel('');
 
-% Remove top and right axis lines
-set(gca,'box','off');
-
-% Save the figure as an image
-% saveas(fig, '2_3_3_boxplot.png');
-
-% Show the figure
-fig.Visible = 'on';
+print('../figures/2_3_3_boxplot','-dpng','-r300')  % 画像として保存
 ```
 
-![figure_2.png](chapter2_3_media/figure_2.png)
+<center><img src="chapter2_3_media/figure_2.png" width="602" alt="figure_2.png"></center>
+

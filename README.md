@@ -26,9 +26,9 @@
 | 2.1 [数量と図形の大きさを紐付る](chapter2/chapter2_1.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter2/chapter2_1.mlx) |
 | 2.2 [大きさを比較する](chapter2/chapter2_2.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter2/chapter2_2.mlx) |
 | 2.3 [標本を視えるようにする](chapter2/chapter2_3.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter2/chapter2_3.mlx) |
-| 3.1 分布の特徴をとらえる　|  |
-| 3.2 線で特徴をとらえる　|  |
-| 3.3 ２変数の関係をとらえる　|  |
+| 3.1 [分布の特徴をとらえる](chapter3/chapter3_1.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter3/chapter3_1.mlx) |
+| 3.2 [線で特徴をとらえる](chapter3/chapter3_3.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter3/chapter3_2.mlx) |
+| 3.3 [２変数の関係をとらえる](chapter3/chapter3_3.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter3/chapter3_3.mlx) |
 | 4.1 三つ以上の変数の可視化　|  |
 | 4.2 ネットワークをとらえる　|  |
 | 4.3 「まとめる」可視化　|  |
@@ -54,3 +54,16 @@ MIT
 筆者による Python サンプルコードはこちら
 
 [tkEzaki/data_visualization](https://github.com/tkEzaki/data_visualization)
+
+## Todo list
+
+- 図 1.2.3 重要なつながりだけ抜き出す
+- 図 1.2.4 全体の関係性パターンを見つける
+- 図 1.2.5 様々なデータの並べ方, 日本の地図プロット
+- 図 2.1.3 ツリーマップによるグループ情報の付与
+- 図 2.3.2 様々な標本の可視化, バイオリンプロット
+- 4 章
+- 5 章
+- 6 章
+- 7 章
+- 8 章

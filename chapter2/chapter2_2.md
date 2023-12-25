@@ -1,117 +1,114 @@
 
-# 2.2 大きさを比較する
+# <span style="color:rgb(213,80,0)">2.2 大きさを比較する</span>
 ## 図 2.2.1 棒グラフの例
 ```matlab
-% Data definition
-days = {'月曜', '火曜', '水曜', '木曜', '金曜', '土曜', '日曜'};
-sales = [30, 25, 35, 28, 22, 34, 35];
-card_members = [20, 13, 20, 14, 14, 20, 25];
-non_members = [10, 12, 15, 14, 8, 14, 10];
+% データの定義
+days = {'月曜', '火曜', '水曜', '木曜', '金曜', '土曜', '日曜'}';
+sales = [30, 25, 35, 28, 22, 34, 35]';
+cardMembers = [20, 13, 20, 14, 14, 20, 25]';
+nonMembers = [10, 12, 15, 14, 8, 14, 10]';
 
-% Create color map
-% cmap = colormap('tab10'); % 'tab10' is a commonly used color map
+% Figure サイズ設定
+figure('Position', [10, 10, 800, 600]);
 
-% Create a figure
-figure('Position', [100, 100, 1000, 800]);
+tiledlayout(2,2)
+% 基本的な棒グラフの作成
+nexttile  
+bar(sales);
+xticklabels(days)
+ylabel('売上 [万円]');  
+fontsize(14,'points');
 
-% Basic bar chart
-subplot(2, 2, 1);
-% bar(sales, 'FaceColor', cmap(1, :));
-bar(sales)
-set(gca, 'xticklabel', days, 'FontSize', 14);
-ylabel('売上 [万円]', 'FontSize', 14);
+% 積み上げ棒グラフの作成
+nexttile 
+bar([cardMembers, nonMembers], 'stacked', EdgeColor='none');  
+xticklabels(days);
+ylabel('売上 [万円]');
+fontsize(14,'points')
 
-% Stacked bar chart
-subplot(2, 2, 2);
-bar([card_members; non_members]', 'stacked');
-set(gca, 'xticklabel', days, 'FontSize', 14);
-ylabel('売上 [万円]', 'FontSize', 14);
-legend({'カード会員', '非会員'}, 'FontSize', 14);
+% 水平棒グラフの作成
+nexttile([1,2])
+barh([cardMembers, nonMembers]);
+yticklabels(days);
+xlabel('売上 [万円]');  
+legend('カード会員', '非会員');  
+fontsize(14,'points')
 
-% Horizontal bar chart
-subplot(2, 2, [3, 4]);
-barh([card_members; non_members]', 'BarWidth', 0.35);
-set(gca, 'yticklabel', flip(days), 'FontSize', 14); % Flip to match the order in Python
-xlabel('売上 [万円]', 'FontSize', 14);
-legend({'カード会員', '非会員'}, 'FontSize', 14, 'Location', 'northwest');
-
-% Adjust the layout
-set(gcf, 'PaperPositionMode', 'auto');
-
-% Save the figure as an image
-saveas(gcf, '2_2_1_bar_charts.png');
+% 画像として保存
+print('../figures/2_2_1_bar_charts.png', '-dpng', '-r300');  
 ```
 
-![figure_0.png](chapter2_2_media/figure_0.png)
+<center><img src="chapter2_2_media/figure_0.png" width="803" alt="figure_0.png"></center>
 
-```matlab
-
-% MATLAB figures are displayed by default
-```
 ## 図 2.2.2 折れ線グラフの例
 ```matlab
-% Data generation
-rng(0); % Set random seed for reproducibility
-days = {'月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日', '日曜日'};
-A_san = normrnd(36.0, 0.2, [1, 7]);
-B_san = normrnd(36.0, 0.2, [1, 7]);
+rng(0);  % 乱数のシードを設定（再現性のため）
+days = {'月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日', '日曜日'}';
+A = normrnd(36.0, 0.2, [7,1]);
+B = normrnd(36.0, 0.2, [7,1]);
 
-% Create figure and axes
-fig = figure('Position', [100, 100, 800, 400]);
+% プロットの設定
+figure(Position=[10, 10, 800, 400]);  % Figureのサイズを変更
 
-% Plot line charts for Aさん and Bさん
-plot(1:7, A_san, 'o-', 'DisplayName', 'Aさん');
-hold on; % Hold on to plot multiple lines on the same axes
-plot(1:7, B_san, 's--', 'DisplayName', 'Bさん');
+% AさんとBさんの体温推移をプロット
+plot(1:7, A, 'o-', DisplayName='Aさん');
+hold on;
+plot(1:7, B, 's--', DisplayName='Bさん');
 hold off;
 
-% Set the x-axis to use custom labels
-set(gca, 'xtick', 1:7, 'xticklabel', days, 'FontSize', 12);
+xticklabels(days)
+ylabel('体温 [℃]');  % y軸ラベルを設定
+legend;  % 凡例の表示
+fontsize(14,'points')
 
-% Set y-axis label
-ylabel('体温 [℃]', 'FontSize', 14);
-
-% Show legend
-legend('FontSize', 14);
-
-% Save the figure as an image
-saveas(fig, '2_2_2_line_plot.png');
+print('../figures/2_2_2_line_plot','-dpng','-r300');  % 画像として保存
 ```
 
-![figure_1.png](chapter2_2_media/figure_1.png)
+<center><img src="chapter2_2_media/figure_1.png" width="803" alt="figure_1.png"></center>
+
 ## 図 2.2.3 見やすさのための折れ線グラフ
 ```matlab
-% Data generation
-rng(0); % Set random seed for reproducibility
-people = {'A', 'B', 'C', 'D', 'E', 'F', 'G'}; % List of people
-evening_temps = normrnd(36.0, 0.2, [1, 7]); % Evening temperatures
-morning_temps = normrnd(36.0, 0.2, [1, 7]); % Morning temperatures
+% 乱数のシードを設定（再現性のため）
+rng(0, 'twister');
 
-% Create figure and subplots
-fig = figure('Position', [100, 100, 1000, 400]);
+% 人のリスト
+people = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
 
-% First subplot - Line chart with markers only
-ax1 = subplot(1, 2, 1);
-plot(ax1, 1:7, evening_temps, 'o', 'DisplayName', '夕方');
-hold(ax1, 'on');
-plot(ax1, 1:7, morning_temps, 's', 'DisplayName', '早朝');
-hold(ax1, 'off');
-ylabel(ax1, '体温 [℃]', 'FontSize', 14);
-set(ax1, 'xtick', 1:7, 'xticklabel', people, 'FontSize', 14);
-legend(ax1, 'FontSize', 14);
+% size=7の正規分布の乱数生成、平均36.0、標準偏差0.2
+temp_evening = 36.0 + 0.2 * randn(1, 7);  % 夕方の体温
+temp_morning = 36.0 + 0.2 * randn(1, 7);  % 早朝の体温
 
-% Second subplot - Line chart with markers and lines
-ax2 = subplot(1, 2, 2);
-plot(ax2, 1:7, evening_temps, 'o-', 'DisplayName', '夕方');
-hold(ax2, 'on');
-plot(ax2, 1:7, morning_temps, 's--', 'DisplayName', '早朝');
-hold(ax2, 'off');
-ylabel(ax2, '体温 [℃]', 'FontSize', 14);
-set(ax2, 'xtick', 1:7, 'xticklabel', people, 'FontSize', 14);
-legend(ax2, 'FontSize', 14);
+% FigureとAxes
+figure(Position=[100 100 1000 400]);
 
-% Save the figure as an image
-saveas(fig, '2_2_3_point_lineplot.png');
+tiledlayout('horizontal');
+
+% マーカーのみの折れ線グラフをプロット
+nexttile;
+plot(1:7, temp_evening, 'o', DisplayName='夕方');
+hold on
+plot(1:7, temp_morning, 's', DisplayName='早朝');
+hold off
+ylabel('体温 [℃]');
+xticklabels(people);
+
+legend;
+fontsize(14,'points')
+
+% マーカーと折れ線のグラフをプロット
+nexttile;
+plot(1:7, temp_evening, 'o-', DisplayName='夕方');
+hold on
+plot(1:7, temp_morning, 's--', DisplayName='早朝');
+hold off
+ylabel('体温 [℃]');
+xticklabels(people)
+legend
+fontsize(14,'points')
+
+% 画像として保存
+print('../figures/2_2_3_point_lineplot','-dpng', '-r300');
 ```
 
-![figure_2.png](chapter2_2_media/figure_2.png)
+<center><img src="chapter2_2_media/figure_2.png" width="806" alt="figure_2.png"></center>
+
