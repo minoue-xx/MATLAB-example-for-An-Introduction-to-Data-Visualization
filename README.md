@@ -33,8 +33,8 @@
 | 4.2 ネットワークをとらえる　|  |
 | 4.3 「まとめる」可視化　|  |
 | 5.1 [分布と統計量](chapter5/chapter5_1.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter5/chapter5_1.mlx) |
-| 5.2 ばらつきをとらえる　|  |
-| 5.3 分布の形をとらえる　|  |
+| 5.2 [ばらつきをとらえる](chapter5/chapter5_2.md)　|  [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter5/chapter5_2.mlx) |
+| 5.3 [分布の形をとらえる](chapter5/chapter5_3.md)　|  [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter5/chapter5_3.mlx) |
 | 6.1 「近いか遠いか」をとらえる　|  |
 | 6.2 分布同士の距離を測る　|  |
 | 6.3 ペアになった分布間の距離指標　|  |
@@ -63,6 +63,7 @@ MIT
 - 図 2.1.3 ツリーマップによるグループ情報の付与
 - 図 2.3.2 様々な標本の可視化, バイオリンプロット
 - 4 章
+- 図 5.3.1 歪度と尖度
 - 5 章
 - 6 章
 - 7 章
