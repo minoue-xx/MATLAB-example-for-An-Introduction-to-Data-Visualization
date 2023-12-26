@@ -29,22 +29,22 @@
 | 3.1 [分布の特徴をとらえる](chapter3/chapter3_1.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter3/chapter3_1.mlx) |
 | 3.2 [線で特徴をとらえる](chapter3/chapter3_3.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter3/chapter3_2.mlx) |
 | 3.3 [２変数の関係をとらえる](chapter3/chapter3_3.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter3/chapter3_3.mlx) |
-| 4.1 三つ以上の変数の可視化　|  |
-| 4.2 ネットワークをとらえる　|  |
-| 4.3 「まとめる」可視化　|  |
+| 4.1 三つ以上の変数の可視化　| （準備中） |
+| 4.2 ネットワークをとらえる　| （準備中） |
+| 4.3 「まとめる」可視化　| （準備中） |
 | 5.1 [分布と統計量](chapter5/chapter5_1.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter5/chapter5_1.mlx) |
 | 5.2 [ばらつきをとらえる](chapter5/chapter5_2.md)　|  [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter5/chapter5_2.mlx) |
 | 5.3 [分布の形をとらえる](chapter5/chapter5_3.md)　|  [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter5/chapter5_3.mlx) |
-| 6.1 「近いか遠いか」をとらえる　|  |
-| 6.2 分布同士の距離を測る　|  |
-| 6.3 ペアになった分布間の距離指標　|  |
-| 6.4 「つながり」をとらえる　|  |
-| 7.1 時間的なパターンをとらえる　|  |
-| 7.2 空間データのパターンをとらえる　|  |
-| 7.3 ネットワークのパターンをとらえる　|  |
-| 8.1 効果的な可視化のテクニック　|  |
-| 8.2 指標化から可視化の戦略を考える　|  |
-| 8.3 可視化されたデータの解釈学　|  |
+| 6.1 「近いか遠いか」をとらえる　| （準備中） |
+| 6.2 分布同士の距離を測る　| （準備中） |
+| 6.3 ペアになった分布間の距離指標　| （準備中） |
+| 6.4 「つながり」をとらえる　| （準備中） |
+| 7.1 時間的なパターンをとらえる　| （準備中） |
+| 7.2 空間データのパターンをとらえる　| （準備中） |
+| 7.3 ネットワークのパターンをとらえる　| （準備中） |
+| 8.1 効果的な可視化のテクニック　| （準備中） |
+| 8.2 指標化から可視化の戦略を考える　| （準備中） |
+| 8.3 可視化されたデータの解釈学　| （準備中） |
 
 ## License
 MIT
@@ -64,7 +64,6 @@ MIT
 - 図 2.3.2 様々な標本の可視化, バイオリンプロット
 - 4 章
 - 図 5.3.1 歪度と尖度
-- 5 章
 - 6 章
 - 7 章
 - 8 章
