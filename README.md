@@ -29,9 +29,9 @@
 | 3.1 [分布の特徴をとらえる](chapter3/chapter3_1.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter3/chapter3_1.mlx) |
 | 3.2 [線で特徴をとらえる](chapter3/chapter3_3.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter3/chapter3_2.mlx) |
 | 3.3 [２変数の関係をとらえる](chapter3/chapter3_3.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter3/chapter3_3.mlx) |
-| 4.1 三つ以上の変数の可視化　| （準備中） |
-| 4.2 ネットワークをとらえる　| （準備中） |
-| 4.3 「まとめる」可視化　| （準備中） |
+| 4.1 [三つ以上の変数の可視化](chapter4/chapter4_1.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter4/chapter4_1.mlx) |
+| 4.2 [ネットワークをとらえる](chapter4/chapter4_2.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter4/chapter4_2.mlx) |
+| 4.3 [「まとめる」可視化]　|(chapter4/chapter4_3.md) | [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter4/chapter4_3.mlx) |
 | 5.1 [分布と統計量](chapter5/chapter5_1.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter5/chapter5_1.mlx) |
 | 5.2 [ばらつきをとらえる](chapter5/chapter5_2.md)　|  [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter5/chapter5_2.mlx) |
 | 5.3 [分布の形をとらえる](chapter5/chapter5_3.md)　|  [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter5/chapter5_3.mlx) |
@@ -64,6 +64,7 @@ MIT
 - 図 2.3.2 様々な標本の可視化, バイオリンプロット
 - 4 章
 - 図 4.1.3 変数ごとに個別に可視化する方法, バイオリンプロット
+- 図 4.2.4 様々なレイアウトによるネットワーク描画
 - 図 5.3.1 歪度と尖度
 - 6 章
 - 7 章
