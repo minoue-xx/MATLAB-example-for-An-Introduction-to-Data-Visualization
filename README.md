@@ -31,7 +31,7 @@
 | 3.3 [２変数の関係をとらえる](chapter3/chapter3_3.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter3/chapter3_3.mlx) |
 | 4.1 [三つ以上の変数の可視化](chapter4/chapter4_1.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter4/chapter4_1.mlx) |
 | 4.2 [ネットワークをとらえる](chapter4/chapter4_2.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter4/chapter4_2.mlx) |
-| 4.3 [「まとめる」可視化]　|(chapter4/chapter4_3.md) | [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter4/chapter4_3.mlx) |
+| 4.3 [「まとめる」可視化](chapter4/chapter4_3.md) | [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter4/chapter4_3.mlx) |
 | 5.1 [分布と統計量](chapter5/chapter5_1.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter5/chapter5_1.mlx) |
 | 5.2 [ばらつきをとらえる](chapter5/chapter5_2.md)　|  [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter5/chapter5_2.mlx) |
 | 5.3 [分布の形をとらえる](chapter5/chapter5_3.md)　|  [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter5/chapter5_3.mlx) |
@@ -68,6 +68,7 @@ MIT
 - 図 4.3.3 様々なクラスタリング手法
 - 図 4.3.4 多変数をペアプロットで見る, データ生成
 - 図 4.3.6 画像データの次元削減, MDS, UMAPによる次元圧縮
+- 図 4.3.7 HMM による時系列解析
 - 図 5.3.1 歪度と尖度
 - 6 章
 - 7 章
