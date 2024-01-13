@@ -36,7 +36,7 @@
 | 5.2 [ばらつきをとらえる](chapter5/chapter5_2.md)　|  [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter5/chapter5_2.mlx) |
 | 5.3 [分布の形をとらえる](chapter5/chapter5_3.md)　|  [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter5/chapter5_3.mlx) |
 | 6.1 [「近いか遠いか」をとらえる](chapter6/chapter6_1.md)　|  [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter6/chapter6_1.mlx) |
-| 6.2 分布同士の距離を測る　| （準備中） |
+| 6.2 [分布同士の距離を測る](chapter6/chapter6_2.md)　|  [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter6/chapter6_2.mlx) |
 | 6.3 ペアになった分布間の距離指標　| （準備中） |
 | 6.4 「つながり」をとらえる　| （準備中） |
 | 7.1 時間的なパターンをとらえる　| （準備中） |
@@ -70,7 +70,6 @@ MIT
 - 図 4.3.6 画像データの次元削減, MDS, UMAPによる次元圧縮
 - 図 4.3.7 HMM による時系列解析
 - 図 5.3.1 歪度と尖度
-- 図 6.2.*
 - 図 6.3.*
 - 図 6.4.*
 - 図 7.1.*
