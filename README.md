@@ -20,12 +20,12 @@ export('chapter6_2.mlx',Format='markdown',EmbedImages=false)
 
 # コード一覧
 
-以下のリンクをクリックすると MATLAB Online にファイルをクローンして開くことができます。
+以下のリンクをクリックすると MATLAB Online にファイルをクローンして開くことができます（ライセンス不要ですが MathWorks アカウントを作成する必要があります。）
 [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization)
 
 章ごとに開く場合はそれぞれのリンクをクリックしてください。
 
-|  Capter (link to markdown) |  Open in MATLAB Online  |
+|  Chapter (link to markdown) |  Open in MATLAB Online  |
 | ---- | ---- |
 | 1.1 [データを可視化するということ](chapter1/chapter1_1.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter1/chapter1_1.mlx) |
 | 1.2 [可視化の効果を考える](chapter1/chapter1_2.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter1/chapter1_2.mlx) |
