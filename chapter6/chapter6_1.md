@@ -169,7 +169,7 @@ title('Network Graph')
 fontsize(14,'points')
 
 % グラフを保存
-print('../figures/network_distance', '-dpng', '-r300')
+print('../figures/6_1_4_network_distance', '-dpng', '-r300')
 ```
 
 <center><img src="chapter6_1_media/figure_2.png" width="562" alt="figure_2.png"></center>
