@@ -12,6 +12,11 @@
 export('chapter6_2.mlx',Format='markdown',EmbedImages=false)
 ```
 
+## 
+
+- 筆者による Python コード[tkEzaki/data_visualization](https://github.com/tkEzaki/data_visualization)
+- Rによる実装 [https://morimotoosamu.github.io/data_visualization/](https://morimotoosamu.github.io/data_visualization/)
+
 
 # ご利用に際して　
 
@@ -55,12 +60,6 @@ export('chapter6_2.mlx',Format='markdown',EmbedImages=false)
 
 ## License
 MIT
-
-## 
-
-筆者による Python サンプルコードはこちら
-
-[tkEzaki/data_visualization](https://github.com/tkEzaki/data_visualization)
 
 ## Todo list
 
