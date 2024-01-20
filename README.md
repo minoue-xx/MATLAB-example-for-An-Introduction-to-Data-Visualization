@@ -51,9 +51,9 @@ export('chapter6_2.mlx',Format='markdown',EmbedImages=false)
 | 6.2 [分布同士の距離を測る](chapter6/chapter6_2.md)　|  [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter6/chapter6_2.mlx) |
 | 6.3 [ペアになった分布間の距離指標](chapter6/chapter6_3.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter6/chapter6_3.mlx) |
 | 6.4 [「つながり」をとらえる](chapter6/chapter6_4.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter6/chapter6_4.mlx) |
-| 7.1 時間的なパターンをとらえる　| （準備中） |
-| 7.2 空間データのパターンをとらえる　| （準備中） |
-| 7.3 ネットワークのパターンをとらえる　| （準備中） |
+| 7.1 [時間的なパターンをとらえる](chapter7/chapter7_1.md)　| （準備中） |
+| 7.2 [空間データのパターンをとらえる](chapter7/chapter7_2.md)　| （準備中） |
+| 7.3 [ネットワークのパターンをとらえる](chapter7/chapter7_3.md)　| （準備中） |
 | 8.1 [効果的な可視化のテクニック](chapter8/chapter8_1.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter8/chapter8_1.mlx) |
 | 8.2 [指標化から可視化の戦略を考える](chapter8/chapter8_2.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter8/chapter8_2.mlx) |
 | 8.3 [可視化されたデータの解釈学](chapter8/chapter8_3.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter8/chapter8_3.mlx) |
