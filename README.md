@@ -49,9 +49,9 @@ export('chapter6_2.mlx',Format='markdown',EmbedImages=false)
 | 7.1 時間的なパターンをとらえる　| （準備中） |
 | 7.2 空間データのパターンをとらえる　| （準備中） |
 | 7.3 ネットワークのパターンをとらえる　| （準備中） |
-| 8.1 効果的な可視化のテクニック　| （準備中） |
-| 8.2 指標化から可視化の戦略を考える　| （準備中） |
-| 8.3 可視化されたデータの解釈学　| （準備中） |
+| 8.1 [効果的な可視化のテクニック](chapter8/chapter8_1.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter8/chapter8_1.mlx) |
+| 8.2 [指標化から可視化の戦略を考える](chapter8/chapter8_2.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter8/chapter8_2.mlx) |
+| 8.3 [可視化されたデータの解釈学](chapter8/chapter8_3.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter8/chapter8_3.mlx) |
 
 ## License
 MIT
@@ -77,9 +77,8 @@ MIT
 - 図 4.3.6 画像データの次元削減, MDS, UMAPによる次元圧縮
 - 図 4.3.7 HMM による時系列解析
 - 図 5.3.1 歪度と尖度
-- 図 7.1.*
-- 図 7.2.*
-- 図 7.3.*
-- 図 8.1.*
-- 図 8.2.*
-- 図 8.3.*
+- 図 7.1.3 フーリエ変換で周波数の情報を取り出す(データが必要)
+- 図 7.1.4 周波数の時間変化を見る(データが必要)
+- 図 7.1.5 心電図データの分析(データが必要)
+- 図 7.2.1 ボロノイ図による空間の分割
+- 図 7.3.2 様々なネットワーク指標の計算例
