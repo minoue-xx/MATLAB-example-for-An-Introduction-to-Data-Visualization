@@ -1,20 +1,19 @@
 [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization)
+ see [MATLAB Online で開く手順](#matlab-online-で開く手順)
 
 # 本リポジトリについて
 本リポジトリは、江崎貴裕著『指標・特徴量の設計から始める データ可視化学入門 データを洞察につなげる技術』（ソシム）のサンプルコードを公開するためのリポジトリです。
 
 - 動作確認は MATLAB R2023b で実施しています。
 - 各サンプルコードは markdown 版 (md、閲覧用) と MATLAB スクリプト版 (mlx) を用意しています。後者は MATLAB で実行できます。
-- MATLAB Online で開く場合は MathWorks アカウントでのログインが必要です。
+- MATLAB Online で開く場合は MathWorks アカウントでのログインが必要です（[MATLAB Online で開く手順](#matlab-online-で開く手順)）
 - markdown は export 関数で mlx ファイルから直接生成しています。
-
 例:
-
 ```matlab
 export('chapter6_2.mlx',Format='markdown',EmbedImages=false)
 ```
 
-## 
+## 参考
 
 - 筆者による Python コード[tkEzaki/data_visualization](https://github.com/tkEzaki/data_visualization)
 - Rによる実装 [https://morimotoosamu.github.io/data_visualization/](https://morimotoosamu.github.io/data_visualization/)
@@ -59,6 +58,23 @@ export('chapter6_2.mlx',Format='markdown',EmbedImages=false)
 | 8.1 [効果的な可視化のテクニック](chapter8/chapter8_1.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter8/chapter8_1.mlx) |
 | 8.2 [指標化から可視化の戦略を考える](chapter8/chapter8_2.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter8/chapter8_2.mlx) |
 | 8.3 [可視化されたデータの解釈学](chapter8/chapter8_3.md)　| [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization&file=/chapter8/chapter8_3.mlx) |
+
+
+## MATLAB Online で開く手順
+
+コード chapter1-1.mlx (1.1 データを可視化するということ) を開くまでのステップを紹介します。
+
+1. [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=minoue-xx/MATLAB-example-for-An-Introduction-to-Data-Visualization) をクリック
+
+1. MathWorks アカウントでログインします。持ってない場合は新たに作成してください。登録メールアドレスに送付されるコードを使った認証ステップもあります。<center><img src="misc/step1-signin.png" width="384" alt="Step1"></center>
+
+1. MATLAB Online へようこそ。「続行」をクリック。<center><img src="misc/step2-after-signin.png" width="384" alt="Step2"></center>
+
+1. 「保存して開く」をクリックすると、本レポジトリの内容を MATLAB Drive にクローンします。<center><img src="misc/step3-clone-repo.png" width="384" alt="Step3"></center>
+
+1. 数秒かかりますがクローンされます。<center><img src="misc/step4-cloned-repo.png" width="384" alt="Step4"></center>
+
+1. ここでは chapter1 を double-click、chapter1-1.mlx を double-click で開いています。右上に実行ボタンから実行。<center><img src="misc/step5-open-file-and-run.png" width="384" alt="Step5"></center>
 
 ## License
 MIT
