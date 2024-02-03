@@ -357,7 +357,7 @@ for idx = 1:numel(species_list)
     penguins_species = rmmissing(penguins_species);
     
     % 特徴量とターゲットを定義
-    X = penguins_species{:, {'bill_length_mm', 'bill_depth_mm', 'flipper_length_mm'}};
+    X = penguins_species{:, ["bill_length_mm", "bill_depth_mm", "flipper_length_mm"]};
     y = penguins_species.body_mass_g;
 
     % データの分割

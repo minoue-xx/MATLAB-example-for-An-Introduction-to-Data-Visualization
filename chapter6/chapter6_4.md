@@ -14,6 +14,7 @@ joint_prob = joint_prob / sum(joint_prob,'all');
 
 % サンプリング（1000回）
 rng('default'); % 再現性のため
+
 % 1~n の整数から非復元抽出: randsample
 samples = randsample(36,1000000,true,joint_prob(:)); %サンプルをjoint_probに従って1000回サンプリング
 samples = samples - 1; % 0~n-1 に調整

@@ -105,9 +105,9 @@ fnc = @(x,y,x0,y0,a,b) ((x-x0).^2)/a + ((y-y0).^2)/b -1;
 % ylim([-5 5])
 
 % 共分散行列と平均ベクトルを計算
-cov_matrix = cov(data{:, {'Height_m_', 'Weight_kg_'}});
+cov_matrix = cov(data{:, ["Height_m_", "Weight_kg_"]});
 inv_cov_matrix = inv(cov_matrix);
-mean_vector = mean(data{:, {'Height_m_', 'Weight_kg_'}});
+mean_vector = mean(data{:, ["Height_m_", "Weight_kg_"]});
 
 hold on
 % マハラビノス距離が一定の楕円を複数描画（ここでは距離 1, 2, 3, 4 に対して）
@@ -136,7 +136,7 @@ fontsize(14,'points')
 print('../figures/6_1_2_mahalanobis', '-dpng', '-r300');  % 画像を保存
 ```
 
-<center><img src="chapter6_1_media/figure_1.png" width="562" alt="figure_1.png"></center>
+<center><img src="chapter6_1_media/figure_1.png" width="561" alt="figure_1.png"></center>
 
 ## 図 6.1.4 ネットワーク上の最短経路長
 ```matlab

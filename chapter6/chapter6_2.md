@@ -24,7 +24,7 @@ cdf1 = cumsum(ones(sample_size, 1)) / sample_size;  % dist1のCDFを計算
 cdf2 = cumsum(ones(sample_size, 1)) / sample_size;  % dist2のCDFを計算
 
 % 図の準備
-figure(units='normalized',outerposition=[0, 0, 0.8,0.8]);
+figure(Position=[10, 10, 800,800]);
 
 % 共通のビンを設定
 bin_edges = linspace(min([dist1; dist2]), max([dist1; dist2]), 51);
@@ -73,7 +73,7 @@ ylabel('累積分布');  % y軸ラベルを設定
 print('../figures/6_2_1_Kolmogorov_Smirnov', '-dpng', '-r300');
 ```
 
-<center><img src="chapter6_2_media/figure_0.png" width="959" alt="figure_0.png"></center>
+<center><img src="chapter6_2_media/figure_0.png" width="802" alt="figure_0.png"></center>
 
 ## 図 6.2.2 全変動距離を求める
 ```matlab
@@ -138,7 +138,7 @@ samples1 = sort(samples1);
 samples2 = sort(samples2);
 
 % 可視化
-figure('Position', [10 10 800 400]);  % 図の準備
+figure(Position=[10 10 800 400]);  % 図の準備
 scatter(samples1, ones(num_samples,1), 60, 'filled'); % マーカーを設定
 hold on; 
 scatter(samples2, zeros(num_samples,1), 60, 'filled'); % マーカーを設定
@@ -195,7 +195,7 @@ js_divergence = 0.5 * (get_kldivergence(hist1, 0.5 * (hist1 + hist2)) + ...
                        get_kldivergence(hist2, 0.5 * (hist1 + hist2)));
 
 % ヒストグラムを再描画し、ダイバージェンスを表示
-figure('Position', [10 10 800 500]);
+figure(Position=[10 10 800 500]);
 hist1_handle = histogram(filtered_samples1, BinEdges=limited_bins, Normalization='pdf', FaceAlpha=0.5);
 hold on;
 hist2_handle = histogram(filtered_samples2, BinEdges=limited_bins, Normalization='pdf', FaceAlpha=0.5);
@@ -250,7 +250,7 @@ distances3 = compute_metrics(dist3_1, dist3_2, bin_edges);
 max_distance = 2.5;
 
 % ヒストグラムを描画
-figure('Position', [10 10 1000 300]);
+figure(Position=[10 10 1000 300]);
 tiledlayout('horizontal')
 
 nexttile;
@@ -281,7 +281,7 @@ print('../figures/6_2_5_1_dist_pairs', '-dpng', '-r300');  % DPIを300に設定�
 ```matlab
 
 % 各指標の距離をグループ棒グラフとして描画
-figure('Position', [10 10 1000 300]);
+figure(Position=[10 10 1000 300]);
 bar(metrics,[distances1; distances2; distances3]');
 ylim([0, max_distance]);
 legend('分布ペア1', '分布ペア2', '分布ペア3');
