@@ -13,14 +13,21 @@ taiiku = [4, 4];
 ongaku = [5, 2];
 
 data = table(person', sugaku', kokugo', rika', shakai', taiiku', ongaku',...
-    'VariableNames', {'person' '数学' '国語' '理科' '社会' '体育' '音楽'});
+    'VariableNames', ["person" "数学" "国語" "理科" "社会" "体育" "音楽"])
+```
+| |person|数学|国語|理科|社会|体育|音楽|
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|1|"Aさん"|5|5|5|4|4|5|
+|2|"Bさん"|2|3|4|3|4|2|
+
+```matlab
 
 % 科目の順序のリストを定義
 categories1 = ["数学", "国語", "理科", "社会", "体育", "音楽"];
 categories2 = ["音楽", "数学", "理科", "体育", "社会", "国語"]; % 順序を変えたリスト
 
 % グラフ描画
-figure('Position', [10 10 900 400])
+figure(Position=[10 10 900 400])
 tiledlayout('horizontal')
 
 % 各プロットについてループ処理を行う
@@ -53,7 +60,7 @@ end
 print('../figures/4_1_1_1_radar_chart_overwhelming','-dpng','-r300');
 ```
 
-<center><img src="chapter4_1_media/figure_0.png" width="903" alt="figure_0.png"></center>
+<center><img src="chapter4_1_media/figure_0.png" width="902" alt="figure_0.png"></center>
 
 
 ```matlab
@@ -66,10 +73,17 @@ shakai = [1, 1];
 taiiku = [1, 5];
 ongaku = [5, 1];
 data = table(person', sugaku', kokugo', rika', shakai', taiiku', ongaku',...
-    'VariableNames', {'person' '数学' '国語' '理科' '社会' '体育' '音楽'});
+    'VariableNames', ["person" "数学" "国語" "理科" "社会" "体育" "音楽"])
+```
+| |person|数学|国語|理科|社会|体育|音楽|
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|1|"Aさん"|5|5|1|1|1|5|
+|2|"Bさん"|5|1|5|1|5|1|
+
+```matlab
 
 % グラフ描画（上と同じ処理のため、本来であれば関数にしておきたいところ。）
-figure('Position', [10 10 900 400])
+figure(Position=[10 10 900 400])
 tiledlayout('horizontal')
 
 % 各プロットについてループ処理を行う
@@ -102,7 +116,7 @@ end
 print('../figures/4_1_1_2_radar_chart_compelling','-dpng','-r300');
 ```
 
-<center><img src="chapter4_1_media/figure_1.png" width="903" alt="figure_1.png"></center>
+<center><img src="chapter4_1_media/figure_1.png" width="902" alt="figure_1.png"></center>
 
 ## 図 4.1.2 各変数の特徴を概観して比較する
 ```matlab
@@ -141,7 +155,7 @@ wine.target = categorical(wine.target,[1,2,3],["品種1","品種2","品種3"]);
 % wine_data = zscore(wine_data); % Zスコア正規化
 % これは p.DataNormalization = 'zscore'; % の設定で Zスコア表示になるため不要
 
-figure('Position', [100, 100, 1000, 700]) % ピクセル単位となる。
+figure(Position=[100, 100, 1000, 700]) % ピクセル単位となる。
 p = parallelplot(wine{:,2:end}, LineAlpha=0.5, LineWidth=2);
 p.GroupData = wine.target;
 
@@ -200,16 +214,16 @@ wine_mean = removevars(wine_mean,'GroupCount'); % groupCount 変数は不要
 wine_std = groupsummary(wine,'target','std');
 wine_std = removevars(wine_std,'GroupCount'); % groupCount 変数は不要
 
-%サブプロットの設定
-figure('Position', [10, 10, 800, 600]) 
+% Figure サイズの設定
+figure(Position=[10, 10, 800, 600]) 
 
 % 集団棒グラフ＋エラーバー
 % Ref: https://jp.mathworks.com/help/matlab/creating_plots/bar-chart-with-error-bars.html
-hb = bar(wine_mean{:,2:end}', 'FaceColor', 'flat');
+hb = bar(wine_mean{:,2:end}', FaceColor='flat');
 hold on
-errorbar(hb(1).XEndPoints, wine_mean{1,2:end}, wine_std{1,2:end},LineStyle="none",LineWidth=2);
-errorbar(hb(2).XEndPoints, wine_mean{2,2:end}, wine_std{2,2:end},LineStyle="none",LineWidth=2);
-errorbar(hb(3).XEndPoints, wine_mean{3,2:end}, wine_std{3,2:end},LineStyle="none",LineWidth=2);
+errorbar(hb(1).XEndPoints, wine_mean{1,2:end}, wine_std{1,2:end}, LineStyle="none", LineWidth=2);
+errorbar(hb(2).XEndPoints, wine_mean{2,2:end}, wine_std{2,2:end}, LineStyle="none", LineWidth=2);
+errorbar(hb(3).XEndPoints, wine_mean{3,2:end}, wine_std{3,2:end}, LineStyle="none", LineWidth=2);
 % 凡例
 legend(["品種1","品種2","品種3"],'Location', 'best', 'AutoUpdate', 'off')
 
@@ -256,7 +270,7 @@ wine.Properties.VariableNames = varnames;
 wine(:,2:end) = varfun(@zscore, wine(:,2:end), InputVariables=@isnumeric);
 
 figure
-hmap = heatmap(wine{:,2:end}, 'Colormap', jet);
+hmap = heatmap(wine{:,2:end}, Colormap=jet);
 hmap.GridVisible = 'off';
 
 % xtick 名
@@ -278,7 +292,7 @@ print('../figures/4_1_4_heatmap.png', '-dpng', '-r300')
 ## 図 4.1.5 各個体の行動時系列を可視化する
 ```matlab
 % CSVデータを読み込む
-data = readtable(fullfile("data","behavior_data.csv"),'TextType','string');
+data = readtable(fullfile("data","behavior_data.csv"), TextType='string');
 
 % Time列を秒から時間に変換
 data.Time = round(data.Time/3600, 2);  % 3600で割って、小数点第二位まで表示
@@ -286,10 +300,10 @@ data.Time = round(data.Time/3600, 2);  % 3600で割って、小数点第二位�
 % ヒートマップの作成
 % 各個体の行動をカテゴリ変数として扱うために数値に変換
 categories = unique(table2array(data(:,2:end)));  % カテゴリのリストを取得
-dataNum = varfun(@(x) double(categorical(x,categories)), data, 'InputVariables', 2:width(data));  % カテゴリを数値に変換
+dataNum = varfun(@(x) double(categorical(x,categories)), data, InputVariables = 2:width(data));  % カテゴリを数値に変換
 
 % ヒートマップのプロット
-figure('Position', [100, 100, 800, 1100]);  % フィギュアの作成
+figure(Position=[100, 100, 800, 1100]);  % フィギュアの作成
 
 hmap = heatmap(dataNum.Variables);  % ヒートマップを描画
 hmap.ColorbarVisible = 'off';  % カラーバーを非表示にする
@@ -304,9 +318,9 @@ hmap.YDisplayLabels = repmat({''},height(data),1);  % 一旦すべてのラベ�
 hmap.YDisplayLabels(yticks_locations) = cellstr(string(yticks_labels));  % 1時間ごとにラベルを設定
 
 % x軸とy軸のラベル
-hmap.XLabel = '個体';
-hmap.YLabel = '時間 [h]';
-hmap.XDisplayLabels = {'A','B','C','D','E','F','G','H','I','J'};
+hmap.XLabel = "個体";
+hmap.YLabel = "時間 [h]";
+hmap.XDisplayLabels = ["A","B","C","D","E","F","G","H","I","J"];
 
 fontsize(14,'points')
 
@@ -319,7 +333,7 @@ print("../figures/4_1_5_time_series_heat_map_flipped.png", "-dpng", "-r300");  %
 ## 図 4.1.6 1個体の各行動の可視化
 ```matlab
 % CSVデータの読み込み
-data = readtable(fullfile("data","behavior_data.csv"),'TextType','string');
+data = readtable(fullfile("data","behavior_data.csv"), TextType='string');
 
 % Time列を秒から時間に変換
 data.Time = data.Time ./ 3600;
@@ -327,7 +341,7 @@ data.Time = data.Time ./ 3600;
 % 各行動に対するテーブルを作成
 actions = ["Other", 'Nest', 'Toilet', 'Garbage'];  % 行動のリスト
 data_actions = array2table(zeros(height(data), width(actions)),...
-    'VariableNames', cellstr(actions)); % 初期化時に0を設定
+    VariableNames=cellstr(actions)); % 初期化時に0を設定
 
 % (Jさんの行動だけを取り出します)
 % 各行動が発生しているときはそれぞれ異なる数値を設定
@@ -344,7 +358,7 @@ actions = data_actions.Properties.VariableNames;
 new_cmap = [1, 1, 1; jet(4)]; % カラーマップを作成([1 1 1](白) は 0 の箇所)
 
 % ヒートマップのプロット
-fig = figure('Position', [0 0 800 1100]); % サブプロットサイズはここで設定
+fig = figure(Position=[0 0 800 1100]); % サブプロットサイズはここで設定
 tiledlayout(1, 2); % 1行2列のサブプロット
 
 % 全体のヒートマップを描画
@@ -368,7 +382,7 @@ nexttile;
 zoomed_idx = (data.Time >= 13) & (data.Time <= 16);  % 13時から16時までを抽出
 data_actions_zoomed = data_actions(zoomed_idx, :);
 
-hmap2 = heatmap(data_actions_zoomed.Variables, 'Colormap', new_cmap);
+hmap2 = heatmap(data_actions_zoomed.Variables, Colormap=new_cmap);
 hmap2.ColorbarVisible = 'off';  % カラーバーを非表示にする
 hmap2.GridVisible = 'off';
 
