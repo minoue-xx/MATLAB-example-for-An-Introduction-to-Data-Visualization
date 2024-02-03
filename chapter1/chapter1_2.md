@@ -3,14 +3,14 @@
 ## 図 1.2.1 文字情報と視覚情報による提示の違い
 ```matlab
 % データ
-countries = {'日本', 'ブラジル', '米国', '中国'}; % 国のリスト
+countries = ["日本", "ブラジル", "米国", "中国"]; % 国のリスト
 populations = [124620000, 215802222, 335540000, 1425849288]; % 人口のリスト
 
 % 人口を億単位に変換
 populations = populations / 10^8;
 
 % 米国と日本だけをフィルタリングして降順に並べ替え
-filterIndex = ismember(countries, {'米国', '日本'});
+filterIndex = ismember(countries, ["米国", "日本"]);
 filteredCountries = countries(filterIndex);
 filteredPopulations = populations(filterIndex);
 [filteredPopulations, sortIndex] = sort(filteredPopulations, 'descend');
@@ -23,8 +23,13 @@ sortedCountries = countries(sortIndex);
 % 米国と日本のみを含む棒グラフの描画
 figure(Position=[100, 100, 600, 250]);
 barh(filteredPopulations);
-set(gca, YTickLabel=filteredCountries, YDir='reverse', FontSize=20);
+
+set(gca, YDir='reverse'); % 逆順
+yticklabels(filteredCountries);
+fontsize(20,'points');
+
 xlabel('人口 [億人]');
+
 print('../figures/1_2_1_bar1','-dpng','-r300'); % dpiを指定して保存
 ```
 
@@ -36,7 +41,9 @@ print('../figures/1_2_1_bar1','-dpng','-r300'); % dpiを指定して保存
 % 四つの国を含む棒グラフの描画
 figure(Position=[100, 100, 600, 300]);
 barh(sortedPopulations);
-set(gca, YTickLabel=sortedCountries, YDir='reverse', FontSize=20);
+yticklabels(sortedCountries);
+set(gca, YDir='reverse'); % 逆順
+fontsize(20,'points')
 xlabel('人口 [億人]');
 print('../figures/1_2_1_bar2','-dpng','-r300'); % dpiを指定して保存
 ```
@@ -104,7 +111,7 @@ shipment = [568232, 31825, 31495, 42441, 307772, 56867, 49767, 41907, 432978, 10
             22613, 294455, 585563, 29545, 175277, 37778, 79298, 34208, 136407, 136385, 83590, 291430, 176715, 53484, 181309, 110027, 42324, 159106, 177842, 37888, 39663, 65910, 99220, 35777];
 
 % 棒グラフを描画
-figure('Position', [100, 100, 1200, 400]);
+figure(Position=[100, 100, 1200, 400]);
 bar(prefectures, shipment);
 
 % X軸のラベルを回転して表示
@@ -127,7 +134,7 @@ prefectures_ordered_by_code = ["北海道", "青森", "岩手", "宮城", "秋�
 ordered_shipments_by_code = [42324, 31825, 56867, 177842, 31495, 39663, 110027, 307772, 175277, 186811, 579061, 294455, 585563, 368026, 83590, 79298, 42441, 53484, 99220, 136407, 190720, 240432, 568232, 159106, 136137, 110115, 432978, 291430, 136385, 35777, 37778, 22613, 108303, 176715, 65910, 29545, 48454, 49767, 20554, 181309, 95824, 34208, 66604, 41907, 37888, 44466, 5240];
 
 % 棒グラフを描画
-figure('Position', [100, 100, 1200, 400]);
+figure(Position=[100, 100, 1200, 400]);
 bar(prefectures_ordered_by_code, ordered_shipments_by_code);
 
 % X軸のラベルを回転して表示
@@ -149,7 +156,7 @@ prefectures = ["愛知", "青森", "秋田", "石川", "茨城", "岩手", "愛�
 shipment = [568200, 31890, 31290, 42750, 307740, 56660, 49760, 41900, 432700, 108000, 5260, 48460, 44426, 368000, 190700, 110135, 66606, 186800, 20500, 579061, 95854, 136337, 245432, 22312, 299485, 590563, 29742, 175261, 37638, 79498, 34208, 136107, 136185, 83490, 291440, 176795, 54484, 181329, 110327, 42334, 159100, 177242, 37838, 39263, 65914, 99420, 35777];
 
 % 棒グラフの描画
-figure('Position', [100, 100, 1200, 400]);
+figure(Position=[100, 100, 1200, 400]);
 bar(prefectures, shipment);
 xtickangle(90); % X軸のラベルを回転して表示
 % 文字サイズ変更
@@ -157,7 +164,7 @@ fontsize(14,'points')
 print('../figures/1_2_6_logistics_bar.png','-dpng','-r300') % 画像を保存
 ```
 
-<center><img src="chapter1_2_media/figure_5.png" width="798" alt="figure_5.png"></center>
+<center><img src="chapter1_2_media/figure_5.png" width="728" alt="figure_5.png"></center>
 
 
 ```matlab
@@ -168,7 +175,7 @@ print('../figures/1_2_6_logistics_bar.png','-dpng','-r300') % 画像を保存
 sorted_prefecture = prefectures(sorted_index);
 sorted_shipment = shipment(sorted_index);
 
-figure('Position', [100, 100, 1200, 400]);
+figure(Position=[100, 100, 1200, 400]);
 bar(sorted_prefecture,sorted_shipment); % 棒グラフを描画
 xtickangle(90); % X軸のラベルを回転して表示
 % 文字サイズ変更
@@ -176,5 +183,5 @@ fontsize(14,'points')
 print('../figures/1_2_6_logistics_bar_sorted.png','-dpng','-r300'); % 画像を保存
 ```
 
-<center><img src="chapter1_2_media/figure_6.png" width="798" alt="figure_6.png"></center>
+<center><img src="chapter1_2_media/figure_6.png" width="728" alt="figure_6.png"></center>
 
