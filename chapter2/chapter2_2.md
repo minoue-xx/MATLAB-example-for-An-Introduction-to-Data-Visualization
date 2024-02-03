@@ -3,15 +3,15 @@
 ## 図 2.2.1 棒グラフの例
 ```matlab
 % データの定義
-days = {'月曜', '火曜', '水曜', '木曜', '金曜', '土曜', '日曜'}';
+days = ["月曜", "火曜", "水曜", "木曜", "金曜", "土曜", "日曜"];
 sales = [30, 25, 35, 28, 22, 34, 35]';
 cardMembers = [20, 13, 20, 14, 14, 20, 25]';
 nonMembers = [10, 12, 15, 14, 8, 14, 10]';
 
 % Figure サイズ設定
-figure('Position', [10, 10, 800, 600]);
+figure(Position=[10, 10, 800, 600]);
+tiledlayout(2,2,TileSpacing="compact")
 
-tiledlayout(2,2)
 % 基本的な棒グラフの作成
 nexttile  
 bar(sales);
@@ -38,12 +38,12 @@ fontsize(14,'points')
 print('../figures/2_2_1_bar_charts.png', '-dpng', '-r300');  
 ```
 
-<center><img src="chapter2_2_media/figure_0.png" width="803" alt="figure_0.png"></center>
+<center><img src="chapter2_2_media/figure_0.png" width="735" alt="figure_0.png"></center>
 
 ## 図 2.2.2 折れ線グラフの例
 ```matlab
-rng(0);  % 乱数のシードを設定（再現性のため）
-days = {'月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日', '日曜日'}';
+rng('default');  % 乱数のシードを設定（再現性のため）
+days = ["月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日", "日曜日"];
 A = normrnd(36.0, 0.2, [7,1]);
 B = normrnd(36.0, 0.2, [7,1]);
 
@@ -51,9 +51,9 @@ B = normrnd(36.0, 0.2, [7,1]);
 figure(Position=[10, 10, 800, 400]);  % Figureのサイズを変更
 
 % AさんとBさんの体温推移をプロット
-plot(1:7, A, 'o-', DisplayName='Aさん');
+plot(1:7, A, 'o-', LineWidth=2, DisplayName='Aさん');
 hold on;
-plot(1:7, B, 's--', DisplayName='Bさん');
+plot(1:7, B, 's--', LineWidth=2, DisplayName='Bさん');
 hold off;
 
 xticklabels(days)
@@ -64,15 +64,15 @@ fontsize(14,'points')
 print('../figures/2_2_2_line_plot','-dpng','-r300');  % 画像として保存
 ```
 
-<center><img src="chapter2_2_media/figure_1.png" width="803" alt="figure_1.png"></center>
+<center><img src="chapter2_2_media/figure_1.png" width="735" alt="figure_1.png"></center>
 
 ## 図 2.2.3 見やすさのための折れ線グラフ
 ```matlab
 % 乱数のシードを設定（再現性のため）
-rng(0, 'twister');
+rng('default');
 
 % 人のリスト
-people = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
+people = ["A", "B", "C", "D", "E", "F", "G"];
 
 % size=7の正規分布の乱数生成、平均36.0、標準偏差0.2
 temp_evening = 36.0 + 0.2 * randn(1, 7);  % 夕方の体温
@@ -81,7 +81,7 @@ temp_morning = 36.0 + 0.2 * randn(1, 7);  % 早朝の体温
 % FigureとAxes
 figure(Position=[100 100 1000 400]);
 
-tiledlayout('horizontal');
+tiledlayout('horizontal',TileSpacing='compact');
 
 % マーカーのみの折れ線グラフをプロット
 nexttile;
@@ -97,9 +97,9 @@ fontsize(14,'points')
 
 % マーカーと折れ線のグラフをプロット
 nexttile;
-plot(1:7, temp_evening, 'o-', DisplayName='夕方');
+plot(1:7, temp_evening, 'o-', LineWidth=2, DisplayName='夕方');
 hold on
-plot(1:7, temp_morning, 's--', DisplayName='早朝');
+plot(1:7, temp_morning, 's--', LineWidth=2, DisplayName='早朝');
 hold off
 ylabel('体温 [℃]');
 xticklabels(people)
@@ -110,5 +110,5 @@ fontsize(14,'points')
 print('../figures/2_2_3_point_lineplot','-dpng', '-r300');
 ```
 
-<center><img src="chapter2_2_media/figure_2.png" width="806" alt="figure_2.png"></center>
+<center><img src="chapter2_2_media/figure_2.png" width="735" alt="figure_2.png"></center>
 
