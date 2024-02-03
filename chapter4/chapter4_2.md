@@ -37,7 +37,7 @@ end
 research_score_data = (research_score_data + research_score_data') / 2;
 
 % ヒートマップの描画
-figure('Position', [10 10 1000 450])
+figure(Position=[10 10 1000 450])
 tiledlayout('horizontal')
 
 nexttile
@@ -59,12 +59,12 @@ title('研究スコアデータヒートマップ');
 print('../figures/4_2_1_relation_heatmap', '-dpng', '-r300');
 ```
 
-<center><img src="chapter4_2_media/figure_0.png" width="748" alt="figure_0.png"></center>
+<center><img src="chapter4_2_media/figure_0.png" width="842" alt="figure_0.png"></center>
 
 ## 図 4.2.2 ネットワークによる関係データの可視化
 ```matlab
 % 研究者リスト
-researchers = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+researchers = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 
 % 共著データ
 collaboration = [NaN, 1, 1, 0, 0, 0, 0, 0, 0, 1;
@@ -108,7 +108,7 @@ research_scores_network = graph(research_score_data, researchers,...
 
 % 共著データと研究スコアのネットワークを描画
 figure('Position',[1 1 800 800]);  % フィギュアの生成
-tiledlayout(2,2);
+tiledlayout(2,2,TileSpacing="compact");
 
 % 共著データのネットワークを描画（手動で円状にレイアウト調整）
 nexttile
@@ -146,7 +146,7 @@ fontsize(14,'points')
 print('../figures/4_2_2_network_visualization','-dpng','-r300');  % 画像を保存
 ```
 
-<center><img src="chapter4_2_media/figure_1.png" width="748" alt="figure_1.png"></center>
+<center><img src="chapter4_2_media/figure_1.png" width="802" alt="figure_1.png"></center>
 
 ## 図 4.2.3 指導関係の可視化
 ```matlab
@@ -240,8 +240,8 @@ G_dir_hierarchy = addedge(G_dir_hierarchy, 1:29, edges(2:end));  % エッジを�
 graphs = {G_dir_random, G_dir_hierarchy};
 titles = ["Directed Random Graph", "Directed Graph with Wide Hierarchy"];
 
-figure('Position',[1 1 800 1400]);  % フィギュアの生成
-tiledlayout(4,2)
+figure(Position=[1 1 800 1400]);  % フィギュアの生成
+tiledlayout(4,2,TileSpacing="compact")
 layouts = ["layered","circle","force","subspace"];
 for layout = layouts
     for jj = 1:2
@@ -253,6 +253,6 @@ end
 print('../figures/4_2_5_network_layouts_directed', '-dpng', '-r300' );  % 画像を保存
 ```
 
-<center><img src="chapter4_2_media/figure_4.png" width="459" alt="figure_4.png"></center>
+<center><img src="chapter4_2_media/figure_4.png" width="458" alt="figure_4.png"></center>
 
 
