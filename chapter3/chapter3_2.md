@@ -32,13 +32,13 @@ tiledlayout('horizontal')
 
 % 折れ線グラフ
 nexttile
-plot(years, gdp, 'Color', [0.529 0.808 0.922]);
+plot(years, gdp, Color=[0.529 0.808 0.922]);
 title('折れ線グラフ');
 ylabel('国内総生産（支出側） [兆円]');
 
 % エリアチャート
 nexttile
-area(years, gdp, 'FaceColor', [0.529 0.808 0.922]);
+area(years, gdp, FaceColor=[0.529 0.808 0.922]);
 title('エリアチャート');
 xlabel('年度');
 ylim([0 600]);
@@ -50,20 +50,17 @@ title('積み上げエリアチャート');
 ylim([0 600]);
 legend('民間最終消費支出', '民間住宅', '民間企業設備', '政府最終消費支出', '公的固定資本形成',...
     Location='south');
-```
-
-<center><img src="chapter3_2_media/figure_0.png" width="562" alt="figure_0.png"></center>
-
-
-```matlab
 
 % プロットを保存
 print('../figures/3_2_1_line_plots', '-dpng', '-r300');
 ```
+
+<center><img src="chapter3_2_media/figure_0.png" width="562" alt="figure_0.png"></center>
+
 ## 図 3.2.2 複数の時系列データの描画
 ```matlab
 % データ生成
-rng(0);  % 同じ乱数が生成されるようにシードを設定
+rng('default');  % 同じ乱数が生成されるようにシードを設定
 n_days = 30;  % 30日間
 n_individuals = 30;  % 個体数
 half_n = floor(n_individuals / 2);  % 個体数の半分
@@ -81,14 +78,14 @@ end
 
 % グラフ描画
 figure
-tiledlayout(2,2)
+tiledlayout(2,2,TileSpacing="compact")
 
 % 全個体をそれぞれ違う色で描画
 % 関数jetを使用して色のリストを生成します。
 nexttile
 colors = jet(n_individuals);
 for ii = 1:n_individuals
-    plot(1:n_days, activity_data(ii, :), 'Color', colors(ii, :), 'LineWidth', 2);
+    plot(1:n_days, activity_data(ii, :), Color=colors(ii, :), LineWidth=2);
     hold on
 end
 fontsize(14,'points')
@@ -224,7 +221,7 @@ print('../figures/3_2_3_slope', '-dpng', '-r300')  % 画像を保存
 書籍では statsmodels の tsa.seasonal_decompose を使用しているため同じ手法の再現せず、[trenddecomp](https://jp.mathworks.com/help/matlab/ref/double.trenddecomp.html) で同様の処理を行うに止める。
 
 ```matlab
-% データの読み込み（事前にローカルにDLしてほしい）
+% データの読み込み
 data = readtable('https://raw.githubusercontent.com/selva86/datasets/master/a10.csv');
 [lt,st,r] = trenddecomp(data.value);
 
