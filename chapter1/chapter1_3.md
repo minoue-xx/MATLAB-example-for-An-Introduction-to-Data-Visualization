@@ -15,7 +15,7 @@ y2 = 0.8 * (x2 - 0.5) + 0.5 + 0.1 * randn([50,1]);
 
 % グラフ描画の設定
 figure
-tiledlayout('horizontal');
+tiledlayout('horizontal',TileSpacing='compact');
 
 nexttile
 % サブプロット1: 相関のないデータ（色：青）
@@ -50,14 +50,15 @@ samples = normrnd(mu, sigma, [10000, 1]);  % 正規分布から10000個のサン
 
 % 新しい図の作成 と ヒストグラム（頻度分布）をプロット
 figure
-histogram(samples, 30, 'Normalization', 'pdf');
+histogram(samples, 30, Normalization='pdf');
 
 % 正規分布の理論的な確率密度関数をプロット
 x = min(samples) : 0.1 : max(samples);  % x軸の範囲を100分割したデータを生成
 p = normpdf(x, mu, sigma);  % 正規分布の確率密度関数を計算
 hold on
-plot(x, p, 'r', 'LineWidth', 2)  % 確率密度関数をプロット
+plot(x, p, 'r', LineWidth=2)  % 確率密度関数をプロット
 hold off
+
 % x軸とy軸の表示設定とファイル保存
 fontsize(14,'points');
 print('../figures/1_3_4_normal_dist.png','-dpng','-r300');
@@ -75,13 +76,13 @@ samples = samples(samples > -10 & samples < 10);
 
 % 新しい図の作成
 figure
-histogram(samples, 50, 'Normalization', 'pdf');  % ヒストグラムのプロット
+histogram(samples, 50, Normalization='pdf');  % ヒストグラムのプロット
 
 % コーシー分布の理論的な確率密度関数をプロット
 x = min(samples) : 0.1 : max(samples);  % x軸の範囲を1000分割したデータを生成
 p = tpdf(x, 1);  % コーシー分布の確率密度関数を計算
 hold on;
-plot(x, p, 'b', 'LineWidth', 2);  % 確率密度関数をプロット
+plot(x, p, 'b', LineWidth=2);  % 確率密度関数をプロット
 hold off;
 
 % x軸とy軸の表示設定とファイル保存
@@ -138,8 +139,8 @@ exp_y = exp_y .* (1 + randn(1, 30) * 0.08);  % ランダムなノイズを付加
 
 % プロットの設定
 figure(Position=[10 10 800 400])
+tiledlayout('horizontal',TileSpacing='compact');
 
-tiledlayout('horizontal');
 nexttile % 1行2列の左側
 plot(x, exp_y, 'o', LineWidth=1.5) % 指数関数をプロット
 
@@ -147,12 +148,10 @@ plot(x, exp_y, 'o', LineWidth=1.5) % 指数関数をプロット
 nexttile % 1行2列の右側
 semilogy(x, exp_y, 'o', LineWidth=1.5)  % 指数関数をプロット
 
+fontsize(16,'points')
+
 print('../figures/1_3_5_exponential_growth','-dpng', '-r300')  % 画像として保存
 ```
 
-```TextOutput
-Warning: Negative data ignored
-```
-
-<center><img src="chapter1_3_media/figure_4.png" width="798" alt="figure_4.png"></center>
+<center><img src="chapter1_3_media/figure_4.png" width="728" alt="figure_4.png"></center>
 
