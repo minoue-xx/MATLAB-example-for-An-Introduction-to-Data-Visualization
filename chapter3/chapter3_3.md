@@ -7,7 +7,7 @@ filename = "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/pengui
 penguins = readtable(filename);
 
 % カラム名を日本語にする
-penguins.Properties.VariableNames = {'種類', '島', 'くちばしの長さ [mm]', 'くちばしの厚さ [mm]', 'ひれの長さ [mm]', '体重 [g]', '性別'};
+penguins.Properties.VariableNames = ["種類", "島", "くちばしの長さ [mm]", "くちばしの厚さ [mm]", "ひれの長さ [mm]", "体重 [g]", "性別"];
 
 % ペアプロットの描画
 xnames = penguins.Properties.VariableNames(3:6);
@@ -24,7 +24,7 @@ print('../figures/3_3_1_pairplot','-dpng','-r300');
 ```matlab
 % データセットの読み込み
 filename = "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv"; 
-penguins = readtable(filename, TextType='string');
+penguins = readtable(filename, TextType='string'); % 文字列は string 型で読み込む設定
 
 species = unique(penguins.species);
 colors = lines(numel(species)); % lines カラーマップ配列
@@ -85,7 +85,7 @@ penguins = readtable(filename, TextType='string');
 speciesList = unique(penguins.species);  % データを種類ごとに分割
 
 % 図の描画
-figure('Position', [10 10 600 600])  % 図のサイズを指定
+figure(Position=[10 10 600 600])  % 図のサイズを指定
 colors = lines(numel(speciesList)); % lines カラーマップ配列
 
 % データの分割、学習、予測、描画を種類ごとに行う
@@ -99,7 +99,7 @@ for idx = 1:length(speciesList)
     penguinsSpecies = rmmissing(penguinsSpecies);
 
     % 特徴量とターゲットを定義
-    X = table2array(penguinsSpecies(:, {'bill_length_mm', 'bill_depth_mm', 'flipper_length_mm'}));
+    X = table2array(penguinsSpecies(:, ["bill_length_mm", "bill_depth_mm", "flipper_length_mm"]));
     y = penguinsSpecies.body_mass_g;
 
     % データの分割
@@ -149,7 +149,7 @@ print('../figures/3_3_3_prediction_scatter', '-dpng', '-r300')  % 画像とし�
 ## 図 3.3.4 y = x との比較：その他の例
 ```matlab
 % 再現性確保
-rng(0);
+rng('default');
 
 % ユーザー数
 num_users = 100;
@@ -223,7 +223,7 @@ axis square;
 print('../figures/3_3_4_vs_x=y', '-dpng', '-r300');
 ```
 
-<center><img src="chapter3_3_media/figure_3.png" width="562" alt="figure_3.png"></center>
+<center><img src="chapter3_3_media/figure_3.png" width="561" alt="figure_3.png"></center>
 
 ## 図 3.3.5 サンプルサイズが大きいケース
 ```matlab
@@ -244,8 +244,8 @@ y3 = 25 + 30.*randn(400, 1);  % 平均25、分散30の正規分布
 x = [x1; x2; x3];  % xを統合
 y = [y1; y2; y3];  % yを統合
 
-figure('Position', [10, 10, 800, 800]);
-tiledlayout(2,2);
+figure(Position=[10, 10, 800, 800]);
+tiledlayout(2,2,TileSpacing="compact");
 
 % 散布図のプロット
 nexttile % 左上のプロット領域を作成
@@ -273,7 +273,7 @@ fontsize(14,'points')
 print('../figures/3_3_5_scatter_variations', '-dpng', '-r300')  % 画像として保存
 ```
 
-<center><img src="chapter3_3_media/figure_4.png" width="803" alt="figure_4.png"></center>
+<center><img src="chapter3_3_media/figure_4.png" width="802" alt="figure_4.png"></center>
 
 ## 図 3.3.6 バブルチャートによる情報提示
 ```matlab
@@ -304,5 +304,5 @@ hold off;
 print('../figures/3_3_6_bubble_chart', '-dpng', '-r300')  % 画像として保存
 ```
 
-<center><img src="chapter3_3_media/figure_5.png" width="562" alt="figure_5.png"></center>
+<center><img src="chapter3_3_media/figure_5.png" width="561" alt="figure_5.png"></center>
 
