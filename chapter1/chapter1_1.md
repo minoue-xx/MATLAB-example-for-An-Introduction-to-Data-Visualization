@@ -62,7 +62,7 @@ print('../figures/1_1_4_population_scatter_plot','-dpng','-r300'); % dpiを指�
 ## 図 1.1.5 折れ線グラフと散布図による可視化例その 2
 ```matlab
 % データの定義
-t = 0:1:100; % 時間軸（0から100まで）
+t = 0:100; % 時間軸（0から100まで）
 x_t = [
     0.2, 0.64, 0.9216, 0.28901376, 0.821939226, 0.585420539, 0.970813326, 0.113339247, 0.401973849, 0.961563495, ...
     0.14783656, 0.503923646, 0.99993842, 0.000246305, 0.000984976, 0.003936025, 0.015682131, 0.061744808, 0.231729548, 0.712123859, ...
@@ -96,7 +96,7 @@ grid on; % グリッドを表示
 print('../figures/1_1_5_logistic_map','-dpng','-r300'); % dpiを指定して保存
 ```
 
-<center><img src="chapter1_1_media/figure_2.png" width="934" alt="figure_2.png"></center>
+<center><img src="chapter1_1_media/figure_2.png" width="803" alt="figure_2.png"></center>
 
 ## 図 1.1.6 2 個体間の類似度のスコア化の仮想的な例
 ```matlab
@@ -106,6 +106,7 @@ mean = [0, 0];
 cov = [1, 0.8; 0.8, 1];
 
 % 2変量正規分布からデータ生成
+rng('default')
 x = mvnrnd(mean, cov, 100);
 x = reshape(x,[10,10,2]);
 heatmap1 = x(:, :, 1);
@@ -127,7 +128,7 @@ intercept = b(1);
 
 % ヒートマップの描画
 figure;
-tiledlayout(1,2)
+tiledlayout(1,2,TileSpacing="compact")
 nexttile
 imshow(heatmap1, Colormap=gray, InitialMagnification='fit');
 
@@ -136,7 +137,7 @@ imshow(heatmap2, Colormap=gray, InitialMagnification='fit');
 print('../figures/1_1_6_visual_data','-dpng');
 ```
 
-<center><img src="chapter1_1_media/figure_3.png" width="562" alt="figure_3.png"></center>
+<center><img src="chapter1_1_media/figure_3.png" width="560" alt="figure_3.png"></center>
 
 
 ```matlab
@@ -151,7 +152,7 @@ ylim([0, 1]);
 print('../figures/1_1_6_scatter','-dpng','-r300');
 ```
 
-<center><img src="chapter1_1_media/figure_4.png" width="562" alt="figure_4.png"></center>
+<center><img src="chapter1_1_media/figure_4.png" width="560" alt="figure_4.png"></center>
 
 
 ```matlab
@@ -162,7 +163,7 @@ fprintf('Correlation coefficient: %f, p-value: %f\n', r(1,2), p(1,2));
 ```
 
 ```TextOutput
-Correlation coefficient: 0.720160, p-value: 0.000000
+Correlation coefficient: 0.851243, p-value: 0.000000
 ```
 
 ```matlab
@@ -188,15 +189,15 @@ figure;
 barWidth = 1;
 r1 = 1:length(individual1);
 r2 = r1 + barWidth;
-bar(r1, individual1, 'blue', BarWidth=barWidth);
+bar(r1, individual1, BarWidth=barWidth);
 hold on;
-bar(r2, individual2, 'red', BarWidth=barWidth);
+bar(r2, individual2, BarWidth=barWidth);
 xlim([0, 100]);
-set(gca, FontSize=18);
+fontsize(18,'points');
 print('../figures/1_1_6_location_index','-dpng','-r300');
 ```
 
-<center><img src="chapter1_1_media/figure_5.png" width="562" alt="figure_5.png"></center>
+<center><img src="chapter1_1_media/figure_5.png" width="560" alt="figure_5.png"></center>
 
 
 ```matlab
@@ -209,11 +210,14 @@ plot(individual1, intercept + slope * individual1, 'green');
 axis equal;
 xlim([0, 0.03]);
 ylim([0, 0.03]);
-set(gca, XTick=[0, 0.01, 0.02, 0.03], YTick=[0, 0.01, 0.02, 0.03], FontSize=20);
+
+fontsize(18,'points');
+xticks([0, 0.01, 0.02, 0.03]);
+yticks([0, 0.01, 0.02, 0.03]);
 print('../figures/1_1_6_location_index_scatter','-dpng','-r300');
 ```
 
-<center><img src="chapter1_1_media/figure_6.png" width="562" alt="figure_6.png"></center>
+<center><img src="chapter1_1_media/figure_6.png" width="560" alt="figure_6.png"></center>
 
 
 ```matlab
@@ -224,7 +228,7 @@ fprintf('Correlation coefficient: %f, p-value: %f\n', r(1,2), p(1,2));
 ```
 
 ```TextOutput
-Correlation coefficient: 0.856256, p-value: 0.000000
+Correlation coefficient: 0.846965, p-value: 0.000000
 ```
 ## 図 1.1.7 二つの類似度スコアの関係
 ```matlab
@@ -234,7 +238,7 @@ rho = 0.7; % 相関係数
 mean = [0, 0]; % 平均（二変数）
 cov = [1, rho; rho, 1]; % 共分散行列
 
-rng('default'); rng(0); % 乱数生成器のシード設定（固定）
+rng('default'); % 乱数生成器のシード設定（固定）
 data = mvnrnd(mean, cov, n - 1); % 多変量正規分布からデータ生成
 x = data(:, 1);
 y = data(:, 2);
@@ -260,6 +264,7 @@ xticks([-0.5, 0.0, 0.5, 1]); % X軸の目盛り
 yticks([-0.5, 0.0, 0.5, 1]); % Y軸の目盛り
 xlim([-0.5, 1.0]); % X軸の表示範囲
 ylim([-0.5, 1.0]); % Y軸の表示範囲
+
 % 画像として保存
 print('../figures/1_1_7_similarity_scatter', '-dpng', '-r300');
 ```
