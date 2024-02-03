@@ -2,7 +2,7 @@
 # <span style="color:rgb(213,80,0)">3.1 分布の特徴をとらえる</span>
 ## 図 3.1.1 基本的な分布の特徴
 ```matlab
-rng(0); % 乱数のシードを設定（再現性のため）
+rng('default'); % 乱数のシードを設定（再現性のため）
 
 % 中央傾向：平均値が0と10の二つの分布
 data1_a = randn(1, 1000); % 平均0、標準偏差1の正規分布に従う乱数を1000個生成
@@ -77,15 +77,15 @@ x = linspace(-4, 4, 200);
 y = normpdf(x, mu, sigma);
 
 % サブプロットとしてヒストグラムを生成
-figure('Position', [10 10 800 300])
-t = tiledlayout('horizontal');
+figure(Position=[10 10 800 300])
+t = tiledlayout('horizontal',TileSpacing='compact');
 for ii = 1:length(bins_sizes)
     nexttile
     histogram(s, NumBins=bins_sizes(ii), Normalization='pdf', ...
         FaceColor='blue', FaceAlpha=0.6);  % ヒストグラムを描画
     hold on;
     plot(x, y, 'r--')  % 正規分布を描画
-    title(['ビン 幅 = ', num2str(4/bins_sizes(ii))]);  % タイトル
+    title("ビン 幅 = " + num2str(4/bins_sizes(ii)));  % タイトル
 end
 ylabel(t,'相対頻度');  % y軸ラベル
 xlabel(t,'観測値');  % x軸ラベル
@@ -94,7 +94,7 @@ fontsize(14,'points') % フォントサイズを14に設定
 print('../figures/3_1_2_1_bin_size.png', '-dpng', '-r300'); % 図の保存
 ```
 
-<center><img src="chapter3_1_media/figure_1.png" width="803" alt="figure_1.png"></center>
+<center><img src="chapter3_1_media/figure_1.png" width="728" alt="figure_1.png"></center>
 
 
 ```matlab
@@ -109,8 +109,8 @@ bins_sizes = [20, 20, 20];
 offsets = [0, 0.1, 0.2];
 
 % サブプロットとしてヒストグラムを生成
-figure('Position', [10 10 800 300])
-t = tiledlayout('horizontal');
+figure(Position=[10 10 800 300])
+t = tiledlayout('horizontal',TileSpacing='compact');
 for ii = 1:length(bins_sizes)
     nexttile
     edges = linspace(-4 + offsets(ii), 4 + offsets(ii), bins_sizes(ii) + 1);  % ビンの範囲をずらす
@@ -119,7 +119,7 @@ for ii = 1:length(bins_sizes)
     hold on;
     plot(x, y, 'r--')  % 正規分布を描画
     ylim([0, 0.6]);  % y軸の範囲を設定
-    title(['オフセット = ', num2str(offsets(ii))]);  % タイトル
+    title("オフセット = " + num2str(offsets(ii)));  % タイトル
 end
 ylabel(t,'相対頻度');  % y軸ラベル
 xlabel(t,'観測値');  % x軸ラベル
@@ -128,13 +128,13 @@ fontsize(14,'points') % フォントサイズを14に設定
 print('../figures/3_1_2_2_bin_offset.png', '-dpng', '-r300'); % 図の保存
 ```
 
-<center><img src="chapter3_1_media/figure_2.png" width="803" alt="figure_2.png"></center>
+<center><img src="chapter3_1_media/figure_2.png" width="728" alt="figure_2.png"></center>
 
 # 図 3.1.3 正規分布との比較
 ## データを正規分布でフィッティング
 ```matlab
 % 乱数のシードを設定（再現性のため）
-rng(0)
+rng('default')
 
 % サイコロを100回振った時の出目の総和を1000x100回サンプリングする
 roll_dice = randi([1 6], 100, 1000*100);
@@ -194,7 +194,7 @@ rng(0);  % 乱数のシードを設定（再現性のため）
 % 平均3、標準偏差1の正規分布と平均7、標準偏差1の正規分布に従う乱数を500個ずつ生成
 data4_b = [normrnd(3, 1, [500, 1]); normrnd(7, 1, [500, 1])]; 
 
-figure('Position', [10, 10, 500, 400]); % グラフのサイズを指定
+figure(Position=[10, 10, 500, 400]); % グラフのサイズを指定
 
 % データをヒストグラムでプロット
 histogram(data4_b, 30, Normalization='pdf', ...
@@ -232,7 +232,7 @@ print('../figures/3_1_3_2_gmm_fitting', '-dpng', '-r300'); % 図の保存
 
 ## 対数正規分布によく従うデータ
 ```matlab
-rng(0);  % 乱数のシードを設定（再現性のため）
+rng('default');  % 乱数のシードを設定（再現性のため）
 
 % 対数正規分布のパラメータ
 mu = 0.954;
@@ -249,7 +249,8 @@ N_samples = fitdist(log_X_samples, 'Normal');  % 正規分布へのフィッテ�
 
 % ヒストグラムとフィット結果をプロット
 figure;
-t = tiledlayout('horizontal');
+tiledlayout('horizontal');
+
 % 対数正規分布
 nexttile;
 histogram(X_samples, 1000, Normalization='pdf');  % ヒストグラムを描画
@@ -284,18 +285,19 @@ print('../figures/3_1_3_3_log_transform', '-dpng', '-r300'); % 図の保存
 rng('default');  % 乱数生成器を初期化
 
 % グラフの色
-colors = {'red', 'blue', 'green', 'magenta', 'yellow', 'red', 'pink', 'black', 'cyan'};
+colors = lines(8);
+% {'red', 'blue', 'green', 'magenta', 'yellow', 'red', 'pink', 'black', 'cyan'};
 
 % 3行3列のグラフを作成
-figure('Position', [100, 100, 1400, 1000]);
+figure(Position=[100, 100, 1400, 1000]);
 
 % プロットの設定
-t = tiledlayout(3,3);
+tiledlayout(3,3,TileSpacing="compact");
 
 % 一様分布
 nexttile;
 x_values = linspace(-1, 1, 1000);
-plot(x_values, unifpdf(x_values, -1, 1), Color=colors{5});
+plot(x_values, unifpdf(x_values, -1, 1), Color=colors(5,:));
 ylim([0, 1]);
 legend(' $f(x) = \frac{1}{b - a}$ ', Interpreter='latex');
 title('一様分布', FontSize=20);
@@ -303,7 +305,7 @@ title('一様分布', FontSize=20);
 % 正規分布
 nexttile;
 x_values = linspace(-4, 4, 1000);
-plot(x_values, normpdf(x_values, 0, 1), Color=colors{1});
+plot(x_values, normpdf(x_values, 0, 1), Color=colors(1,:));
 ylim([0, 0.65]);
 legend(' $f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$ ', ...
     Interpreter='latex');
@@ -314,77 +316,78 @@ nexttile
 n = 10;
 p = 0.5;
 x_values = 0:n;
-plot(x_values, binopdf(x_values, n, p), 'o', Color=colors{2});
+plot(x_values, binopdf(x_values, n, p), 'o', Color=colors(2,:));
 ylim([0, 0.4]);
 legend(' $P(k; n, p) = C(n, k) p^k (1-p)^{n-k}$ ', Interpreter='latex');
-title('二項分布', FontSize=20);
+title('二項分布', FontSize=16);
+
 % ポアソン分布
 nexttile
 mu = 3;
 x_values = 0:9;
-plot(x_values, poisspdf(x_values, mu), 'o', Color=colors{3});
+plot(x_values, poisspdf(x_values, mu), 'o', Color=colors(3,:));
 ylim([0, 0.3]);
 legend(' $P(k; \mu) = \frac{e^{-\mu} \mu^k}{k!}$ ', Interpreter='latex');
-title('ポアソン分布', FontSize=20);
+title('ポアソン分布', FontSize=16);
 
 % 指数分布
 nexttile
 x_values = linspace(0, 10, 1000);
-plot(x_values, exppdf(x_values, 1), Color=colors{4});
+plot(x_values, exppdf(x_values, 1), Color=colors(4,:));
 ylim([0, 1.0]);
 legend(' $f(x; \lambda) = \lambda e^{-\lambda x}$ ', ...
     Interpreter='latex', Location='southwest');
-title('指数分布', FontSize=20);
+title('指数分布', FontSize=16);
 
 % ガンマ分布
 nexttile
 x_values = linspace(0, 10, 1000);
-plot(x_values, gampdf(x_values, 5, 1), Color=colors{6});
+plot(x_values, gampdf(x_values, 5, 1), Color=colors(6,:));
 ylim([0, 0.3]);
 legend(' $f(x; \alpha) = \frac{1}{\Gamma(\alpha)} \beta^{\alpha} x^{\alpha - 1} e^{-\beta x}$ ', ...
     Interpreter='latex');
-title('ガンマ分布', FontSize=20);
+title('ガンマ分布', FontSize=16);
 
 % ワイブル分布
 nexttile
 x_values = linspace(0.01, 2, 1000);
-plot(x_values, wblpdf(x_values, 1, 1.5), Color=colors{8});
+plot(x_values, wblpdf(x_values, 1, 1.5), Color=colors(8,:));
 ylim([0, 1.1]);
 legend(' $f(x; k) = k (\frac{x}{\lambda})^{k - 1} e^{-(x/\lambda)^{k}}$ ', ...
     Interpreter='latex', Location='northeast');
-title('ワイブル分布', FontSize=20);
+title('ワイブル分布', FontSize=16);
 
 % 対数正規分布
 nt1 = nexttile;
 x_values = linspace(0.01, 10, 1000);
-plot(x_values, lognpdf(x_values, 0, 1), Color=colors{6});
+plot(x_values, lognpdf(x_values, 0, 1), Color=colors(6,:));
 ylim([0, 0.8]);
 legend(' $f(x; \mu, \sigma) = \frac{1}{x \sigma \sqrt{2\pi}} e^{-\frac{(\ln x - \mu)^2}{2\sigma^2}}$ ', ...
     Interpreter='latex', Location='southwest');
-title('対数正規分布', FontSize=20);
+title('対数正規分布', FontSize=16);
 
 % パレート分布
 nt2 = nexttile;
 x_values = linspace(1, 4, 1000);
-plot(x_values, gppdf(x_values, 1, 1/5, 1), Color=colors{8});
+plot(x_values, gppdf(x_values, 1, 1/5, 1), Color=colors(8,:));
 
 ylim([0, 6]);
 legend(' $f(x; \alpha) = \alpha x_m^{\alpha} x^{-\alpha - 1}$ ', ...
     Interpreter='latex', Location='southeast');
-title('パレート分布', FontSize=20);
+title('パレート分布', FontSize=16);
 % 対数正規分布の挿入図
 tp = nt1.Position;
 axes('Position', [tp(1)+tp(3)*0.5 tp(2)+tp(4)*0.5 tp(3)*0.4 tp(4)*0.4]); % 挿入図の位置とサイズを調整
 x_values_large = linspace(-5, 3, 100);
 x_values_large = exp(x_values_large);
-plot(x_values_large, lognpdf(x_values_large, 0, 1), Color=colors{6});
+plot(x_values_large, lognpdf(x_values_large, 0, 1), Color=colors(6,:));
 xscale('log');
 
 % パレート分布の挿入図
 tp = nt2.Position;
 axes('Position', [tp(1)+tp(3)*0.4 tp(2)+tp(4)*0.5 tp(3)*0.4 tp(4)*0.4]); % 挿入図の位置とサイズを調整
 x_values_large = linspace(1, 100, 1000);
-plot(x_values_large, gppdf(x_values_large, 1, 1/5, 1), Color=colors{8});
+plot(x_values_large, gppdf(x_values_large, 1, 1/5, 1), Color=colors(8,:));
 xscale('log');
 yscale('log');
 
@@ -392,12 +395,11 @@ yscale('log');
 print('../figures/3_1_4_various_distributions','-dpng','-r300'); % 図の保存
 ```
 
-<center><img src="chapter3_1_media/figure_6.png" width="908" alt="figure_6.png"></center>
+<center><img src="chapter3_1_media/figure_6.png" width="728" alt="figure_6.png"></center>
 
 # 図 3.1.5 累積分布でデータを見る
 ```matlab
-rng(1);  % 乱数のシードを設定（再現性のため）
-% rng('default');  % 乱数生成器を初期化
+rng('default');  % 乱数生成器を初期化
 
 % 正規分布のパラメータ
 mu = 0;  %平均
@@ -417,6 +419,7 @@ y = normcdf(x, mu, sigma);  % 正規分布の累積分布関数の値
 % サブプロットを2x2で生成
 figure;
 t = tiledlayout(2,2);
+
 % 1つ目のサブプロットで80パーセンタイル点以下の領域を別の色で示すヒストグラムを表示
 nexttile;
 percentile_80 = prctile(samples{1}, 80);  % 80パーセンタイル点
@@ -429,7 +432,7 @@ xlabel('観測値');  % x軸ラベル
 xlim([-3, 3]);  % x軸の範囲を設定
 
 % 下段の累積分布を描画
-titles = {"サンプルサイズ=100", "サンプルサイズ=500"};  % グラフのタイトル
+titles = ["サンプルサイズ=100", "サンプルサイズ=500"];  % グラフのタイトル
 for ii = 1:numel(samples)
     nexttile(2+ii);
     [f, x] = ecdf(samples{ii});  % Emprical CDF
@@ -439,7 +442,7 @@ for ii = 1:numel(samples)
     xlim([-3, 3]);  % x軸の範囲
     ylabel('累積相対頻度');  % y軸ラベル
     xlabel('観測値');  % x軸ラベル
-    title(titles{ii});  % グラフのタイトル
+    title(titles(ii));  % グラフのタイトル
     fontsize(14, 'points');  % フォントサイズを14に設定
 end
 
