@@ -32,7 +32,7 @@ labels = [repmat("A", numel(sample_A), 1), ...
 colors = lines(4);
 
 % スウォームプロット
-figure('Position', [100 100 800 400])
+figure(Position=[100 100 800 400])
 tiledlayout('horizontal',TileSpacing='compact')
 
 nexttile

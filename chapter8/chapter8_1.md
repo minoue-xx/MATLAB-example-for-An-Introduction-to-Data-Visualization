@@ -45,7 +45,7 @@ legend('y = sin(x)','y = cos(x)','y = sin(x) + cos(x)');
 print('../figures/8_1_1_visibility_example','-dpng','-r300');
 ```
 
-<center><img src="chapter8_1_media/figure_0.png" width="1003" alt="figure_0.png"></center>
+<center><img src="chapter8_1_media/figure_0.png" width="728" alt="figure_0.png"></center>
 
 ## 図 8.1.2 グラフの縦横比と軸の範囲
 ```matlab
@@ -64,7 +64,7 @@ patterns = [
 
 for ii = 1:4
     pattern = patterns(ii);
-    figure('Position', [10 10 pattern.figsize*100]); % 図の準備
+    figure(Position=[10 10 pattern.figsize*100]); % 図の準備
 
     plot(x, y1, 'o-', 'DisplayName', 'y1');  % y1の折れ線グラフを描画
     hold on;  % グラフの重複表示を許可
@@ -81,16 +81,16 @@ for ii = 1:4
 end
 ```
 
-<center><img src="chapter8_1_media/figure_1.png" width="501" alt="figure_1.png"></center>
+<center><img src="chapter8_1_media/figure_1.png" width="502" alt="figure_1.png"></center>
 
 
-<center><img src="chapter8_1_media/figure_2.png" width="501" alt="figure_2.png"></center>
+<center><img src="chapter8_1_media/figure_2.png" width="502" alt="figure_2.png"></center>
 
 
-<center><img src="chapter8_1_media/figure_3.png" width="902" alt="figure_3.png"></center>
+<center><img src="chapter8_1_media/figure_3.png" width="728" alt="figure_3.png"></center>
 
 
-<center><img src="chapter8_1_media/figure_4.png" width="300" alt="figure_4.png"></center>
+<center><img src="chapter8_1_media/figure_4.png" width="301" alt="figure_4.png"></center>
 
 ## 図 8.1.3 片対数グラフを利用する
 ```matlab
@@ -161,7 +161,7 @@ ylabel('新規感染者数');
 print('../figures/8_1_3_1_normal_axis_plot', '-dpng', '-r300');
 ```
 
-<center><img src="chapter8_1_media/figure_5.png" width="1003" alt="figure_5.png"></center>
+<center><img src="chapter8_1_media/figure_5.png" width="923" alt="figure_5.png"></center>
 
 
 ```matlab
@@ -192,7 +192,7 @@ ylabel('新規感染者数');
 print('../figures/8_1_3_2_log_axis_plot', '-dpng', '-r300');
 ```
 
-<center><img src="chapter8_1_media/figure_6.png" width="1003" alt="figure_6.png"></center>
+<center><img src="chapter8_1_media/figure_6.png" width="923" alt="figure_6.png"></center>
 
 ## 図 8.1.4 凡例を近くに置く
 ```matlab
@@ -207,8 +207,8 @@ hours_of_day = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
 % データ作成
 visitor_count = array2table(zeros(7, 11), ...
-    'VariableNames', string(hours_of_day), ...
-    'RowNames', days_of_week);
+    VariableNames=string(hours_of_day), ...
+    RowNames=days_of_week);
 
 % 各日、各時刻の来客数をパターンに基づいて生成(関数は下部で定義)
 for day = 1:numel(days_of_week)
@@ -233,7 +233,7 @@ grid on  % グリッドを表示
 print('../figures/8_1_4_1_legend_example_with_legend_box', '-dpng', '-r300')  % 図の保存
 ```
 
-<center><img src="chapter8_1_media/figure_7.png" width="802" alt="figure_7.png"></center>
+<center><img src="chapter8_1_media/figure_7.png" width="728" alt="figure_7.png"></center>
 
 
 ```matlab
@@ -254,7 +254,7 @@ grid on  % グリッドを表示
 print('../figures/8_1_4_2_legend_example_without_legend_box', '-dpng', '-r300')  % 図の保存
 ```
 
-<center><img src="chapter8_1_media/figure_8.png" width="802" alt="figure_8.png"></center>
+<center><img src="chapter8_1_media/figure_8.png" width="728" alt="figure_8.png"></center>
 
 ## 図 8.1.5 色を抑えて強調
 ```matlab
@@ -269,8 +269,8 @@ hours_of_day = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
 % データ作成
 visitor_count = array2table(zeros(7, 11), ...
-    'VariableNames', string(hours_of_day), ...
-    'RowNames', days_of_week);
+    VariableNames=string(hours_of_day), ...
+    RowNames=days_of_week);
 
 % 各日、各時刻の来客数をパターンに基づいて生成(関数は下部で定義)
 for day = 1:numel(days_of_week)
@@ -305,7 +305,7 @@ print('../figures/8_1_5_legend_highlight', '-dpng', '-r300')
 print('../figures/8_1_5_legend_highlight', '-dsvg', '-r300')
 ```
 
-<center><img src="chapter8_1_media/figure_9.png" width="802" alt="figure_9.png"></center>
+<center><img src="chapter8_1_media/figure_9.png" width="728" alt="figure_9.png"></center>
 
 ## 図 8.1.6 図内に値を直接記入する
 ```matlab
@@ -359,7 +359,7 @@ fontsize(16,'points')
 print("../figures/8_1_6_1_heatmap_and_bar_without_values", '-dpng', '-r300') % 図の保存
 ```
 
-<center><img src="chapter8_1_media/figure_10.png" width="1003" alt="figure_10.png"></center>
+<center><img src="chapter8_1_media/figure_10.png" width="728" alt="figure_10.png"></center>
 
 
 ```matlab
@@ -377,8 +377,8 @@ xlim([0.50,10.5]); % x軸の範囲を設定
 for i=1:10
     a = data.A(i);
     text(i,a,num2str(a,'%.2f'),...
-       'HorizontalAlignment','center',... 
-       'VerticalAlignment','bottom')
+       HorizontalAlignment='center',... 
+       VerticalAlignment='bottom')
 end
 
 nexttile
@@ -392,13 +392,13 @@ fontsize(16,'points')
 print("../figures/8_1_6_2_heatmap_and_bar_with_values", '-dpng', '-r300') % 図の保存
 ```
 
-<center><img src="chapter8_1_media/figure_11.png" width="1003" alt="figure_11.png"></center>
+<center><img src="chapter8_1_media/figure_11.png" width="728" alt="figure_11.png"></center>
 
 ## 図 8.1.7 軸ラベルを説明的にする
 ```matlab
 % irisデータセットをロードします
 load fisheriris; % meas (150x4 double), species (150x1 cell) が読み込まれる
-iris_dataset = array2table(meas, 'VariableNames', ["sepal_length", "setal_width", "petal_length", "petal_width"]);
+iris_dataset = array2table(meas, VariableNames=["sepal_length", "setal_width", "petal_length", "petal_width"]);
 iris_dataset.species = string(species);
 
 japanese_species_names = ["セトサ", "バージカラー", "バージニカ"];
@@ -432,13 +432,13 @@ print('../figures/8_1_7_label_intelligibility.png', '-dpng', '-r300');
 print('../figures/8_1_7_label_intelligibility.svg', '-dsvg', '-r300');
 ```
 
-<center><img src="chapter8_1_media/figure_12.png" width="1003" alt="figure_12.png"></center>
+<center><img src="chapter8_1_media/figure_12.png" width="728" alt="figure_12.png"></center>
 
 ## 図 8.1.8 パネルのレイアウトを考える
 ```matlab
 % irisデータセットをロードします
 load fisheriris; % meas (150x4 double), species (150x1 cell) が読み込まれる
-iris_dataset = array2table(meas, 'VariableNames', ["sepal_length", "setal_width", "petal_length", "petal_width"]);
+iris_dataset = array2table(meas, VariableNames=["sepal_length", "setal_width", "petal_length", "petal_width"]);
 iris_dataset.species = string(species);
 
 % 日本語の種名を設定
@@ -503,7 +503,7 @@ fontsize(16,'points')
 print('-dpng', '-r300', '../figures/8_1_8_1_panel_layout_bad');  % 図の保存
 ```
 
-<center><img src="chapter8_1_media/figure_13.png" width="902" alt="figure_13.png"></center>
+<center><img src="chapter8_1_media/figure_13.png" width="728" alt="figure_13.png"></center>
 
 
 ```matlab
@@ -552,7 +552,7 @@ fontsize(16,'points')
 print('-dpng', '-r300', '../figures/8_1_8_2_panel_layout_good');  % 図の保存
 ```
 
-<center><img src="chapter8_1_media/figure_14.png" width="902" alt="figure_14.png"></center>
+<center><img src="chapter8_1_media/figure_14.png" width="728" alt="figure_14.png"></center>
 
 
 パターンに基づいて来客数を生成する関数（水曜日の特別処理を含む）図 8.1.4 凡例を近くに置く
