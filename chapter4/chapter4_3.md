@@ -47,7 +47,7 @@ y = [ones(N,1); 2*ones(N,1); 3*ones(N,1)];  % Labels
 [coeff,score,latent,~,explained] = pca(x');
 
 % PCAの2次元に対してSpectral Clustering
-T = clusterdata(score(:,1:2),'maxclust',3,'distance','cosine');
+T = clusterdata(score(:,1:2), maxclust=3, distance='cosine');
 
 % PCAの各主成分の説明力
 explained_variance_all = explained;
@@ -83,8 +83,6 @@ MDS, UMAPによる次元圧縮は省略しています（Todo）
 参照：次元削減と特徴抽出：https://jp.mathworks.com/help/stats/dimensionality-reduction.html
 
 ```matlab
-% load('digits.mat');  % MATLAB has built-in digit dataset
-
 % このコマンドでデータがコピーされます(各数字12枚)
 % 16x16x3 unit8
 if ~exist("handwritten",'dir')
@@ -107,24 +105,24 @@ first_image = reshape(X(1,:), [16, 16]);
 
 % 画像サイズを5x5に指定
 figure
-imshow(first_image, 'InitialMagnification', 'fit')  % 画像を表示
+imshow(first_image, InitialMagnification='fit')  % 画像を表示
 colormap('gray');  % グレースケール表示
 colorbar  % カラーバーを追加
 print('../figures/4_3_6_2_digit_image.png', '-dpng', '-r300')  % PNGファイルとして保存
 ```
 
-<center><img src="chapter4_3_media/figure_2.png" width="562" alt="figure_2.png"></center>
+<center><img src="chapter4_3_media/figure_2.png" width="561" alt="figure_2.png"></center>
 
 
 ```matlab
 % 次元圧縮を実施する
 % 主成分分析 (PCA)
-[coeff, X_pca, ~, ~, ~] = pca(double(X), 'NumComponents', 2);
+[coeff, X_pca, ~, ~, ~] = pca(double(X), NumComponents=2);
 
 rng('default')
 
 % t-SNE による次元圧縮
-X_tsne = tsne(double(X), 'NumDimensions', 2);
+X_tsne = tsne(double(X), NumDimensions=2);
 
 % MDS による次元圧縮
 % X_mds = mdscale(X, 2); % need fix
@@ -136,7 +134,7 @@ clusters_tsne = kmeans(X_tsne, 10);  % t-SNE
 
 % 描画
 figure(Position=[100,100,1000,450]);
-tiledlayout('flow')
+tiledlayout('flow',TileSpacing='compact')
 
 nexttile
 scatter(X_pca(:, 1), X_pca(:, 2), [], clusters_pca, 'filled')  % PCA結果のクラスタリングを描画
@@ -161,10 +159,11 @@ title('t-SNE  (K-means)')
 nexttile
 scatter(X_tsne(:, 1), X_tsne(:, 2), [], y, 'filled')  % t-SNE結果のクラスタリングを描画
 title('t-SNE (正解ラベル)')
+
 print('../figures/4_3_6_1_dimensionality_reduction.png', '-dpng', '-r300')  % 画像を保存
 ```
 
-<center><img src="chapter4_3_media/figure_3.png" width="748" alt="figure_3.png"></center>
+<center><img src="chapter4_3_media/figure_3.png" width="842" alt="figure_3.png"></center>
 
 ## 図 4.3.7 HMM による時系列解析
 
